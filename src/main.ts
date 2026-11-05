@@ -215,25 +215,6 @@ modal?.addEventListener('click', (e) => {
   if (e.target === modal) closeDiagramModal();
 });
 
-// Formulario de Contacto
-const inquiryForm = document.getElementById('inquiry-form') as HTMLFormElement;
-const formSuccess = document.getElementById('form-success');
-
-inquiryForm?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const name = (document.getElementById('form-name') as HTMLInputElement).value;
-  const email = (document.getElementById('form-email') as HTMLInputElement).value;
-  const details = (document.getElementById('form-details') as HTMLTextAreaElement).value;
-
-  const subject = encodeURIComponent(`Consulta técnica / proyecto de ${name}`);
-  const body = encodeURIComponent(`Nombre: ${name}\nCorreo: ${email}\n\nDetalles del proyecto:\n${details}`);
-
-  if (formSuccess) {
-    formSuccess.classList.remove('hidden');
-  }
-  window.location.href = `mailto:contact@3decibels.com?subject=${subject}&body=${body}`;
-});
-
 // Inicialización
 renderProjects();
 renderServices();

@@ -15,7 +15,7 @@
     "highlights": [
       "Interfaz con materiales translúcidos, desenfoque de fondo y respuesta elástica táctil en cada interacción.",
       "Sincronización en tiempo real entre dispositivos mediante almacenamiento distribuido en la nube.",
-      "Motor de impresión y exportación a PDF de alta fidelidad, con precisión milimétrica.",
+      "Motor de impresión y exportación a PDF de alta fidelidad.",
       "Gestión de perfiles de cliente, cláusulas comerciales y pasarelas de pago configurables."
     ],
     "techStack": ["TypeScript", "Tailwind CSS", "Vercel KV", "HTML5 Canvas/Print", "LocalStorage"],
