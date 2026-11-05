@@ -25,7 +25,13 @@
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
-      background-color: #0c0e14;
+      background-color: #0a0c12;
+      background-image: 
+        radial-gradient(ellipse 70% 45% at 50% 0%, rgba(59, 130, 246, 0.10) 0%, transparent 70%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 100% 100%, 48px 48px, 48px 48px;
+      background-attachment: fixed;
       color: #f8fafc;
     }
     .glass-panel {
@@ -52,7 +58,7 @@
     }
   </style>
 </head>
-<body class="min-h-screen selection:bg-blue-600 selection:text-white antialiased bg-[#0c0e14] text-slate-100">
+<body class="min-h-screen selection:bg-blue-600 selection:text-white antialiased text-slate-100">
 
   <!-- Navegación superior -->
   <header class="sticky top-0 z-50 glass-panel border-b border-white/10 px-6 py-4">
