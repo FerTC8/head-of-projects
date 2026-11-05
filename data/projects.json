@@ -86,6 +86,7 @@
     "category": "Inteligencia de Datos & BI",
     "tagline": "Tablero analítico de comercio internacional y tendencias de precios para productos madereros.",
     "image": "./images/export-analysis.png",
+    "previewType": "image",
     "liveUrl": "https://datastudio.google.com/reporting/e3b8696a-7b48-48fc-bbd0-f136cf7ff970",
     "mirrorUrl": "https://lookerstudio.google.com/embed/reporting/e3b8696a-7b48-48fc-bbd0-f136cf7ff970",
     "repoPath": "looker-studio-export-analysis",

@@ -121,8 +121,47 @@ function generateProjectPage(project) {
     : '';
 
   const iframeSrc = project.mirrorUrl || project.liveUrl;
-  const livePreviewHtml = (project.liveUrl || project.mirrorUrl)
-    ? `
+  let livePreviewHtml = '';
+  if (project.previewType === 'image') {
+    const rawImg = project.previewImage || project.image || './images/export-analysis.png';
+    const pageImg = rawImg.startsWith('./') ? `.${rawImg}` : rawImg;
+    livePreviewHtml = `
+      <!-- Vista Previa del Producto (Captura Optimizada en Alta Resolución) -->
+      <section class="glass-panel rounded-2xl border border-white/10 overflow-hidden space-y-0 shadow-2xl">
+        <div class="px-5 py-3.5 bg-black/40 border-b border-white/10 flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <span class="w-3 h-3 rounded-full bg-[#ff5f56]/80"></span>
+            <span class="w-3 h-3 rounded-full bg-[#ffbd2e]/80"></span>
+            <span class="w-3 h-3 rounded-full bg-[#27c93f]/80"></span>
+            <span class="ml-3 text-xs text-slate-400 font-mono hidden sm:inline-flex items-center">
+              <svg class="w-3.5 h-3.5 text-blue-400 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              ${escapeHtml(project.title)} — Looker Studio
+            </span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <span class="inline-flex items-center text-[11px] text-slate-400 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-blue-400 mr-1.5"></span>
+              Captura Oficial de Producción
+            </span>
+            ${project.liveUrl ? `
+              <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="apple-btn text-xs font-semibold px-3 py-1 rounded-lg bg-blue-600 hover:bg-blue-500 text-white shadow-sm flex items-center">
+                Abrir en Looker Studio ↗
+              </a>
+            ` : ''}
+          </div>
+        </div>
+        <div class="relative w-full bg-[#0a0c12] p-4 sm:p-6 md:p-8 flex items-center justify-center overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-b from-blue-600/10 via-transparent to-transparent pointer-events-none"></div>
+          <div class="relative max-w-5xl w-full rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 ring-1 ring-white/5">
+            <a href="${escapeHtml(pageImg)}" target="_blank" rel="noopener noreferrer" class="block group cursor-zoom-in" title="Clic para ampliar en alta resolución">
+              <img src="${escapeHtml(pageImg)}" alt="${escapeHtml(project.title)}" class="w-full h-auto block select-none group-hover:scale-[1.008] transition-transform duration-300" loading="eager">
+            </a>
+          </div>
+        </div>
+      </section>
+    `;
+  } else if (project.liveUrl || project.mirrorUrl) {
+    livePreviewHtml = `
       <!-- Vista Previa Interactiva en Vivo (Iframe) -->
       <section class="glass-panel rounded-2xl border border-white/10 overflow-hidden space-y-0">
         <div class="px-5 py-3.5 bg-black/40 border-b border-white/10 flex items-center justify-between">
@@ -149,8 +188,8 @@ function generateProjectPage(project) {
           <iframe src="${iframeSrc}" class="w-full h-full border-0" loading="lazy" title="${escapeHtml(project.title)}"></iframe>
         </div>
       </section>
-    `
-    : '';
+    `;
+  }
 
   const linksHtml = `
     ${project.liveUrl ? `
