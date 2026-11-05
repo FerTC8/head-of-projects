@@ -219,7 +219,8 @@ function preRenderIndex() {
         }
         return `
       <div class="glass-panel card-hover rounded-2xl p-6 border border-white/10 flex flex-col justify-between space-y-6 ${colClasses}">
-        <div class="space-y-4">
+        ${p.image ? `<div class="card-ambient-bg" style="background-image: url('${escapeHtml(p.image)}');"></div>` : ''}
+        <div class="space-y-4 relative z-10">
           <div class="flex items-center justify-between">
             <span class="text-[11px] uppercase tracking-widest text-slate-400 font-medium">
               ${escapeHtml(p.category)}
@@ -260,7 +261,7 @@ function preRenderIndex() {
         </div>
 
         <!-- Botones de acción -->
-        <div class="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
+        <div class="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-2 relative z-10">
           <div class="flex items-center gap-1.5">
             <a href="./pages/${p.id}.html" class="apple-btn text-xs font-medium px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 flex items-center">
               Ficha
@@ -346,7 +347,20 @@ function preRenderIndex() {
   );
 
   fs.writeFileSync(indexHtmlPath, indexHtml, 'utf8');
-  console.log(`✓ Pre-rendered projects and services into index.html`);
+  const distIndexPath = path.join(rootDir, 'dist', 'index.html');
+  if (fs.existsSync(distIndexPath)) {
+    let distHtml = fs.readFileSync(distIndexPath, 'utf8');
+    distHtml = distHtml.replace(
+      /<!-- PROJECTS_GRID_START -->[\s\S]*?<!-- PROJECTS_GRID_END -->/,
+      `<!-- PROJECTS_GRID_START -->\n${projectsGridHtml}\n      <!-- PROJECTS_GRID_END -->`
+    );
+    distHtml = distHtml.replace(
+      /<!-- SERVICES_GRID_START -->[\s\S]*?<!-- SERVICES_GRID_END -->/,
+      `<!-- SERVICES_GRID_START -->\n${servicesGridHtml}\n      <!-- SERVICES_GRID_END -->`
+    );
+    fs.writeFileSync(distIndexPath, distHtml, 'utf8');
+  }
+  console.log(`✓ Pre-rendered projects and services into index.html and dist/index.html`);
 }
 
 if (targetArg === '--all') {

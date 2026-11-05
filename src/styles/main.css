@@ -47,6 +47,8 @@ body {
 }
 
 .card-hover {
+  position: relative;
+  overflow: hidden;
   transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.24s ease, box-shadow 0.24s ease;
 }
 
@@ -54,6 +56,27 @@ body {
   transform: translateY(-3px);
   border-color: rgba(96, 165, 250, 0.35);
   box-shadow: 0 12px 32px -8px rgba(0, 113, 227, 0.18);
+}
+
+/* Ambient Diffuse Background (Ultra-Subtle Apple Glass Glow) */
+.card-ambient-bg {
+  position: absolute;
+  inset: -24px;
+  background-size: cover;
+  background-position: center top;
+  filter: blur(52px) saturate(1.2);
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+  transform: translateZ(0);
+  mask-image: radial-gradient(ellipse 85% 65% at 50% 25%, black 25%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 25%, black 25%, transparent 85%);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover .card-ambient-bg {
+  opacity: 0.15;
+  transform: scale(1.04) translateZ(0);
 }
 
 /* Custom scrollbars */

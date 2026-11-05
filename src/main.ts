@@ -28,6 +28,7 @@ interface Project {
   title: string;
   category: string;
   tagline: string;
+  image?: string;
   liveUrl?: string;
   githubUrl?: string;
   repoPath: string;
@@ -80,7 +81,8 @@ function renderProjects() {
         }
         return `
       <div class="glass-panel card-hover rounded-2xl p-6 border border-white/10 flex flex-col justify-between space-y-6 ${colClasses}">
-        <div class="space-y-4">
+        ${p.image ? `<div class="card-ambient-bg" style="background-image: url('${p.image}');"></div>` : ''}
+        <div class="space-y-4 relative z-10">
           <div class="flex items-center justify-between">
             <span class="text-[11px] uppercase tracking-widest text-slate-400 font-medium">
               ${p.category}
@@ -121,7 +123,7 @@ function renderProjects() {
         </div>
 
         <!-- Botones de acción -->
-        <div class="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
+        <div class="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-2 relative z-10">
           <div class="flex items-center gap-1.5">
             <a href="./pages/${p.id}.html" class="apple-btn text-xs font-medium px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 flex items-center">
               Ficha
