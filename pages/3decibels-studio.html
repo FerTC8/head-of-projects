@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3Decibels Studio — Arquitectura y Especificación Técnica</title>
+  <title>3Decibels Quote &amp; Invoice Studio — Arquitectura y Especificación Técnica</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
@@ -54,17 +54,23 @@
         </a>
         <span class="text-white/20">|</span>
         <span class="text-xs uppercase tracking-wider text-blue-400 font-semibold px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20">
-          Herramientas de Productividad
+          Herramientas de Productividad &amp; UI de Alta Fidelidad
         </span>
       </div>
       <div class="flex items-center space-x-3">
         <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
-          Producción
+          Producción en Vivo
         </span>
-        <a href="../index.html#contacto" class="apple-btn text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-1.5 rounded-lg shadow-sm">
-          Contactar
-        </a>
+        
+      <a href="https://invoice-generator-showcase.vercel.app/" target="_blank" rel="noopener noreferrer" class="apple-btn text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-1.5 rounded-lg shadow-sm flex items-center">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-300 mr-1.5 animate-pulse"></span>
+        Ver Demo en Vivo ↗
+      </a>
+      <a href="../index.html#contacto" class="apple-btn text-xs font-semibold bg-white/10 hover:bg-white/15 text-white px-3 py-1.5 rounded-lg border border-white/10">
+        Contactar
+      </a>
+    
       </div>
     </div>
   </header>
@@ -74,28 +80,53 @@
     <!-- Sección de Portada del Proyecto -->
     <section class="space-y-6">
       <div class="space-y-3">
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-white">3Decibels Studio</h1>
-        <p class="text-xl text-slate-300 max-w-3xl leading-relaxed">Plataforma de cotización y facturación con interfaz fluida, estados táctiles y sincronización en la nube multidispositivo.</p>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-white">3Decibels Quote &amp; Invoice Studio</h1>
+        <p class="text-xl text-slate-300 max-w-3xl leading-relaxed">Suite de cotización y facturación diseñada bajo principios Apple Fluid Interface, exportación vectorial estricta a 1 página y arquitectura reactiva sin dependencias.</p>
       </div>
 
+      <!-- Botones de Acción (Demo en Vivo y GitHub) -->
+      
+      <div class="flex flex-wrap items-center gap-3 pt-2">
+        
+          <a href="https://invoice-generator-showcase.vercel.app/" target="_blank" rel="noopener noreferrer" class="apple-btn inline-flex items-center px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-lg shadow-blue-600/30">
+            <span class="w-2 h-2 rounded-full bg-emerald-300 mr-2 animate-pulse"></span>
+            Ver Demo en Vivo
+            <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        
+        
+          <a href="https://github.com/FerTC8/invoice-generator-showcase" target="_blank" rel="noopener noreferrer" class="apple-btn inline-flex items-center px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-white font-medium text-sm border border-white/10">
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            Repositorio Público
+          </a>
+        
+      </div>
+    
+
       <!-- Métricas rápidas -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
         
         <div class="glass-panel rounded-xl p-4 border border-white/10 space-y-1">
-          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Latencia en nube</div>
-          <div class="text-2xl font-bold text-white tracking-tight">&lt; 50ms</div>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Interacción</div>
+          <div class="text-2xl font-bold text-white tracking-tight">60fps (resortes)</div>
         </div>
       
 
         <div class="glass-panel rounded-xl p-4 border border-white/10 space-y-1">
-          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Modo sin conexión</div>
-          <div class="text-2xl font-bold text-white tracking-tight">100%</div>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Modo Offline</div>
+          <div class="text-2xl font-bold text-white tracking-tight">100% aislado</div>
         </div>
       
 
         <div class="glass-panel rounded-xl p-4 border border-white/10 space-y-1">
-          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Diseño táctil</div>
-          <div class="text-2xl font-bold text-white tracking-tight">Física y Fluidez</div>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Impresión PDF</div>
+          <div class="text-2xl font-bold text-white tracking-tight">100% US Letter</div>
+        </div>
+      
+
+        <div class="glass-panel rounded-xl p-4 border border-white/10 space-y-1">
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Dependencias</div>
+          <div class="text-2xl font-bold text-white tracking-tight">Zero runtime</div>
         </div>
       
       </div>
@@ -114,10 +145,10 @@
       <div class="bg-[#0f1219] rounded-xl p-6 border border-white/5 overflow-x-auto">
         <pre class="mermaid text-center">
 graph TD
-  Client[Cliente Web Fluido] --> |Caché local| LocalStorage[(Estado Local)]
-  Client --> |Sincronización en vivo| KV[API Serverless KV]
-  KV --> |Persistencia distribuida| CloudDB[(Base de Datos)]
-  Client --> |Renderizado vectorial| Print[Motor de PDF / Impresión]
+  Client[Cliente Apple Fluid Interface] --> |Auto-escalado| Canvas[Lienzo Vectorial autoFitCanvas]
+  Client --> |Sandbox Aislado| LocalStorage[(LocalStorage 100% Offline)]
+  Client --> |Persistencia Híbrida| KV[API Serverless Vercel / Upstash Redis]
+  Canvas --> |Exportación Estricta 1 Página| Print[Motor de Impresión PDF / AirPrint]
         </pre>
       </div>
     </section>
@@ -134,7 +165,7 @@ graph TD
           <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 shrink-0 mt-0.5">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           </span>
-          <span class="text-sm leading-relaxed">Interfaz con materiales translúcidos, desenfoque de fondo y respuesta elástica táctil en cada interacción.</span>
+          <span class="text-sm leading-relaxed">Barra superior y panel lateral con vidrio esmerilado translúcido (backdrop-filter: blur(28px)) y retroalimentación táctil elástica (active:scale-[0.97]).</span>
         </li>
       
 
@@ -142,7 +173,7 @@ graph TD
           <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 shrink-0 mt-0.5">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           </span>
-          <span class="text-sm leading-relaxed">Sincronización en tiempo real entre dispositivos mediante almacenamiento distribuido en la nube.</span>
+          <span class="text-sm leading-relaxed">Lienzo adaptativo con auto-escalado proporcional (autoFitCanvas) ajustado al ancho del viewport en iPhone, iPad y pantallas Retina.</span>
         </li>
       
 
@@ -150,7 +181,7 @@ graph TD
           <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 shrink-0 mt-0.5">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           </span>
-          <span class="text-sm leading-relaxed">Motor de impresión y exportación a PDF de alta fidelidad.</span>
+          <span class="text-sm leading-relaxed">Exportación vectorial estricta a 1 página (@media print) protegida contra saltos accidentales de página.</span>
         </li>
       
 
@@ -158,35 +189,48 @@ graph TD
           <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 shrink-0 mt-0.5">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           </span>
-          <span class="text-sm leading-relaxed">Gestión de perfiles de cliente, cláusulas comerciales y pasarelas de pago configurables.</span>
+          <span class="text-sm leading-relaxed">Cálculo dinámico de divisas, impuestos, kilometraje/viáticos y bloque multimodal de pago (Zelle, Venmo, Square, Bank/ACH, PayPal).</span>
+        </li>
+      
+
+        <li class="flex items-start space-x-3 text-slate-300">
+          <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 shrink-0 mt-0.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+          </span>
+          <span class="text-sm leading-relaxed">Persistencia híbrida inteligente: almacenamiento local instantáneo en sandbox aislado y sincronización en nube vía Upstash Redis / Vercel KV.</span>
         </li>
       
         </ul>
       </section>
 
-      <!-- Pila Tecnológica (1 columna) -->
+      <!-- Pila Tecnológica y Enlaces (1 columna) -->
       <section class="glass-panel rounded-2xl p-6 md:p-8 space-y-6 flex flex-col justify-between">
         <div class="space-y-4">
           <h2 class="text-xl font-semibold text-white">Tecnologías Utilizadas</h2>
           <div class="flex flex-wrap gap-2">
             
         <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
+          HTML5 Nativo
+        </span>
+      
+
+        <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
+          CSS Translúcido (blur 28px)
+        </span>
+      
+
+        <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
           TypeScript
         </span>
       
 
         <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
-          Tailwind CSS
+          Vercel Serverless
         </span>
       
 
         <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
-          Vercel KV
-        </span>
-      
-
-        <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
-          HTML5 Canvas/Print
+          Upstash Redis
         </span>
       
 
@@ -197,11 +241,31 @@ graph TD
           </div>
         </div>
 
-        <div class="pt-6 border-t border-white/10 space-y-2">
-          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Referencia Interna</div>
-          <div class="text-xs font-mono text-slate-300 bg-black/40 px-3 py-2 rounded-lg border border-white/5 truncate">
-            invoice-generator-v4
-          </div>
+        <div class="pt-6 border-t border-white/10 space-y-3">
+          
+    
+      <div class="space-y-1">
+        <div class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Demo Público en Vivo</div>
+        <a href="https://invoice-generator-showcase.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-400 hover:underline break-all block font-mono">
+          https://invoice-generator-showcase.vercel.app/
+        </a>
+      </div>
+    
+    
+      <div class="space-y-1">
+        <div class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Código en GitHub</div>
+        <a href="https://github.com/FerTC8/invoice-generator-showcase" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-400 hover:underline break-all block font-mono">
+          https://github.com/FerTC8/invoice-generator-showcase
+        </a>
+      </div>
+    
+    <div class="space-y-1">
+      <div class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Proyecto Interno</div>
+      <div class="text-xs font-mono text-slate-300 bg-black/40 px-3 py-2 rounded-lg border border-white/5 truncate">
+        invoice-generator-v4
+      </div>
+    </div>
+  
         </div>
       </section>
     </div>
@@ -218,7 +282,7 @@ graph TD
             Iniciar Conversación
             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </a>
-          <a href="mailto:fertortc@gmail.com?subject=Consulta%20sobre%203Decibels Studio" class="apple-btn inline-flex items-center px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-medium text-sm border border-white/10">
+          <a href="mailto:fertortc@gmail.com?subject=Consulta%20sobre%203Decibels Quote &amp; Invoice Studio" class="apple-btn inline-flex items-center px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-medium text-sm border border-white/10">
             Escribir por Correo
           </a>
         </div>

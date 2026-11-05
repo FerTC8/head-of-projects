@@ -1,25 +1,29 @@
 [
   {
     "id": "3decibels-studio",
-    "title": "3Decibels Studio",
-    "category": "Herramientas de Productividad",
-    "tagline": "Plataforma de cotización y facturación con interfaz fluida, estados táctiles y sincronización en la nube multidispositivo.",
+    "title": "3Decibels Quote & Invoice Studio",
+    "category": "Herramientas de Productividad & UI de Alta Fidelidad",
+    "tagline": "Suite de cotización y facturación diseñada bajo principios Apple Fluid Interface, exportación vectorial estricta a 1 página y arquitectura reactiva sin dependencias.",
+    "liveUrl": "https://invoice-generator-showcase.vercel.app/",
+    "githubUrl": "https://github.com/FerTC8/invoice-generator-showcase",
     "repoPath": "invoice-generator-v4",
-    "status": "Producción",
+    "status": "Producción en Vivo",
     "featured": true,
     "metrics": [
-      { "label": "Latencia en nube", "value": "< 50ms" },
-      { "label": "Modo sin conexión", "value": "100%" },
-      { "label": "Diseño táctil", "value": "Física y Fluidez" }
+      { "label": "Interacción", "value": "60fps (resortes)" },
+      { "label": "Modo Offline", "value": "100% aislado" },
+      { "label": "Impresión PDF", "value": "100% US Letter" },
+      { "label": "Dependencias", "value": "Zero runtime" }
     ],
     "highlights": [
-      "Interfaz con materiales translúcidos, desenfoque de fondo y respuesta elástica táctil en cada interacción.",
-      "Sincronización en tiempo real entre dispositivos mediante almacenamiento distribuido en la nube.",
-      "Motor de impresión y exportación a PDF de alta fidelidad.",
-      "Gestión de perfiles de cliente, cláusulas comerciales y pasarelas de pago configurables."
+      "Barra superior y panel lateral con vidrio esmerilado translúcido (backdrop-filter: blur(28px)) y retroalimentación táctil elástica (active:scale-[0.97]).",
+      "Lienzo adaptativo con auto-escalado proporcional (autoFitCanvas) ajustado al ancho del viewport en iPhone, iPad y pantallas Retina.",
+      "Exportación vectorial estricta a 1 página (@media print) protegida contra saltos accidentales de página.",
+      "Cálculo dinámico de divisas, impuestos, kilometraje/viáticos y bloque multimodal de pago (Zelle, Venmo, Square, Bank/ACH, PayPal).",
+      "Persistencia híbrida inteligente: almacenamiento local instantáneo en sandbox aislado y sincronización en nube vía Upstash Redis / Vercel KV."
     ],
-    "techStack": ["TypeScript", "Tailwind CSS", "Vercel KV", "HTML5 Canvas/Print", "LocalStorage"],
-    "diagram": "graph TD\n  Client[Cliente Web Fluido] --> |Caché local| LocalStorage[(Estado Local)]\n  Client --> |Sincronización en vivo| KV[API Serverless KV]\n  KV --> |Persistencia distribuida| CloudDB[(Base de Datos)]\n  Client --> |Renderizado vectorial| Print[Motor de PDF / Impresión]"
+    "techStack": ["HTML5 Nativo", "CSS Translúcido (blur 28px)", "TypeScript", "Vercel Serverless", "Upstash Redis", "LocalStorage"],
+    "diagram": "graph TD\n  Client[Cliente Apple Fluid Interface] --> |Auto-escalado| Canvas[Lienzo Vectorial autoFitCanvas]\n  Client --> |Sandbox Aislado| LocalStorage[(LocalStorage 100% Offline)]\n  Client --> |Persistencia Híbrida| KV[API Serverless Vercel / Upstash Redis]\n  Canvas --> |Exportación Estricta 1 Página| Print[Motor de Impresión PDF / AirPrint]"
   },
   {
     "id": "omnimorph",

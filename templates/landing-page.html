@@ -62,9 +62,7 @@
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
           {{STATUS}}
         </span>
-        <a href="../index.html#contacto" class="apple-btn text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-1.5 rounded-lg shadow-sm">
-          Contactar
-        </a>
+        {{HEADER_ACTIONS_HTML}}
       </div>
     </div>
   </header>
@@ -78,8 +76,11 @@
         <p class="text-xl text-slate-300 max-w-3xl leading-relaxed">{{TAGLINE}}</p>
       </div>
 
+      <!-- Botones de Acción (Demo en Vivo y GitHub) -->
+      {{HERO_ACTIONS_HTML}}
+
       <!-- Métricas rápidas -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
         {{METRICS_HTML}}
       </div>
     </section>
@@ -112,7 +113,7 @@
         </ul>
       </section>
 
-      <!-- Pila Tecnológica (1 columna) -->
+      <!-- Pila Tecnológica y Enlaces (1 columna) -->
       <section class="glass-panel rounded-2xl p-6 md:p-8 space-y-6 flex flex-col justify-between">
         <div class="space-y-4">
           <h2 class="text-xl font-semibold text-white">Tecnologías Utilizadas</h2>
@@ -121,11 +122,8 @@
           </div>
         </div>
 
-        <div class="pt-6 border-t border-white/10 space-y-2">
-          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Referencia Interna</div>
-          <div class="text-xs font-mono text-slate-300 bg-black/40 px-3 py-2 rounded-lg border border-white/5 truncate">
-            {{REPO_PATH}}
-          </div>
+        <div class="pt-6 border-t border-white/10 space-y-3">
+          {{LINKS_HTML}}
         </div>
       </section>
     </div>
