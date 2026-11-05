@@ -106,16 +106,17 @@ function generateProjectPage(project) {
 
   const headerActionsHtml = project.liveUrl
     ? `
-      <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="apple-btn text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-1.5 rounded-lg shadow-sm flex items-center">
+      <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="apple-btn text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white px-2.5 sm:px-3.5 py-1.5 rounded-lg shadow-sm flex items-center shrink-0">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-300 mr-1.5 animate-pulse"></span>
-        Ver Demo en Vivo ↗
+        <span class="sm:hidden">Demo ↗</span>
+        <span class="hidden sm:inline">Ver Demo en Vivo ↗</span>
       </a>
-      <a href="../index.html#contacto" class="apple-btn text-xs font-semibold bg-white/10 hover:bg-white/15 text-white px-3 py-1.5 rounded-lg border border-white/10">
+      <a href="../index.html#contacto" class="hidden sm:inline-flex apple-btn text-xs font-semibold bg-white/10 hover:bg-white/15 text-white px-3 py-1.5 rounded-lg border border-white/10 shrink-0">
         Contactar
       </a>
     `
     : `
-      <a href="../index.html#contacto" class="apple-btn text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-1.5 rounded-lg shadow-sm">
+      <a href="../index.html#contacto" class="apple-btn text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg shadow-sm shrink-0">
         Contactar
       </a>
     `;

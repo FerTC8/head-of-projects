@@ -10,22 +10,28 @@
 <body class="min-h-screen selection:bg-blue-600 selection:text-white antialiased text-slate-100">
 
   <!-- Navegación superior -->
-  <header class="sticky top-0 z-50 glass-nav px-6 py-4">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <a href="#" class="flex items-center space-x-3 group">
-        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform text-white font-bold text-xs tracking-wider">
+  <header class="sticky top-0 z-50 glass-nav px-4 py-2.5 sm:px-6 sm:py-3.5 transition-all">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-3">
+      <a href="#" class="flex items-center space-x-2.5 sm:space-x-3 group shrink-0">
+        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform text-white font-bold text-[11px] sm:text-xs tracking-wider shrink-0">
           FT
         </div>
-        <div>
-          <span class="text-sm font-bold tracking-tight text-white block">PROYECTOS & CONSULTORÍA</span>
-          <span class="text-[11px] font-medium text-slate-400 block -mt-0.5">SISTEMAS E INTERFACES</span>
+        <div class="min-w-0">
+          <span class="text-xs sm:text-sm font-bold tracking-tight text-white block">
+            <span class="sm:hidden">PROYECTOS</span>
+            <span class="hidden sm:inline">PROYECTOS &amp; CONSULTORÍA</span>
+          </span>
+          <span class="hidden sm:block text-[11px] font-medium text-slate-400 -mt-0.5">SISTEMAS E INTERFACES</span>
         </div>
       </a>
 
-      <nav class="flex items-center space-x-6 text-sm font-medium text-slate-300">
-        <a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a>
-        <a href="#servicios" class="hover:text-white transition-colors">Consultoría y Servicios</a>
-        <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
+      <nav class="flex items-center space-x-3 sm:space-x-6 text-xs sm:text-sm font-medium text-slate-300 shrink-0">
+        <a href="#proyectos" class="hover:text-white transition-colors py-1">Proyectos</a>
+        <a href="#servicios" class="hover:text-white transition-colors py-1">
+          <span class="sm:hidden">Servicios</span>
+          <span class="hidden sm:inline">Consultoría y Servicios</span>
+        </a>
+        <a href="#contacto" class="hover:text-white transition-colors py-1">Contacto</a>
       </nav>
     </div>
   </header>

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
 :root {
   --bg-color: #0a0c12;
   --card-bg: rgba(22, 25, 34, 0.75);

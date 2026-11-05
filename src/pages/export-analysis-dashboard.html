@@ -51,25 +51,27 @@
 <body class="min-h-screen selection:bg-blue-600 selection:text-white antialiased text-slate-100">
 
   <!-- Navegación superior -->
-  <header class="sticky top-0 z-50 glass-panel border-b border-white/10 px-6 py-4">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <a href="../index.html" class="flex items-center text-sm font-medium text-slate-400 hover:text-white transition-colors">
-          <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-          Volver a Proyectos
+  <header class="sticky top-0 z-50 glass-panel border-b border-white/10 px-4 py-2.5 sm:px-6 sm:py-3.5 transition-all">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-3">
+      <div class="flex items-center space-x-2 sm:space-x-3 min-w-0">
+        <a href="../index.html" class="flex items-center text-xs sm:text-sm font-medium text-slate-400 hover:text-white transition-colors shrink-0 py-1">
+          <svg class="w-4 h-4 mr-1 sm:mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          <span class="sm:hidden">Volver</span>
+          <span class="hidden sm:inline">Volver a Proyectos</span>
         </a>
-        <span class="text-white/20">|</span>
-        <span class="text-xs uppercase tracking-wider text-blue-400 font-semibold px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20">
+        <span class="hidden md:inline text-white/20">|</span>
+        <span class="hidden md:inline-flex text-xs uppercase tracking-wider text-blue-400 font-semibold px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 truncate">
           Inteligencia de Datos &amp; BI
         </span>
       </div>
-      <div class="flex items-center space-x-3">
+      <div class="flex items-center space-x-2 sm:space-x-3 shrink-0">
         
-      <a href="https://datastudio.google.com/reporting/e3b8696a-7b48-48fc-bbd0-f136cf7ff970" target="_blank" rel="noopener noreferrer" class="apple-btn text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-1.5 rounded-lg shadow-sm flex items-center">
+      <a href="https://datastudio.google.com/reporting/e3b8696a-7b48-48fc-bbd0-f136cf7ff970" target="_blank" rel="noopener noreferrer" class="apple-btn text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white px-2.5 sm:px-3.5 py-1.5 rounded-lg shadow-sm flex items-center shrink-0">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-300 mr-1.5 animate-pulse"></span>
-        Ver Demo en Vivo ↗
+        <span class="sm:hidden">Demo ↗</span>
+        <span class="hidden sm:inline">Ver Demo en Vivo ↗</span>
       </a>
-      <a href="../index.html#contacto" class="apple-btn text-xs font-semibold bg-white/10 hover:bg-white/15 text-white px-3 py-1.5 rounded-lg border border-white/10">
+      <a href="../index.html#contacto" class="hidden sm:inline-flex apple-btn text-xs font-semibold bg-white/10 hover:bg-white/15 text-white px-3 py-1.5 rounded-lg border border-white/10 shrink-0">
         Contactar
       </a>
     
