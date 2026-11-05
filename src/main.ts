@@ -29,6 +29,8 @@ interface Project {
   category: string;
   tagline: string;
   image?: string;
+  ambientBg?: string;
+  previewType?: string;
   liveUrl?: string;
   githubUrl?: string;
   repoPath: string;
@@ -79,9 +81,17 @@ function renderProjects() {
             colClasses = 'col-span-1 md:col-span-2 md:max-w-md md:mx-auto md:w-full lg:col-start-4 lg:col-span-2 lg:max-w-none lg:mx-0';
           }
         }
+        let ambientBgCss = '';
+        if (p.ambientBg) {
+          ambientBgCss = p.ambientBg.startsWith('url(') || p.ambientBg.startsWith('radial-gradient(')
+            ? p.ambientBg
+            : `url('${p.ambientBg}')`;
+        } else if (p.image) {
+          ambientBgCss = `url('${p.image}')`;
+        }
         return `
       <div class="glass-panel card-hover rounded-2xl p-6 border border-white/10 flex flex-col justify-between space-y-6 ${colClasses}">
-        ${p.image ? `<div class="card-ambient-bg" style="background-image: url('${p.image}');"></div>` : ''}
+        ${ambientBgCss ? `<div class="card-ambient-bg" style="background-image: ${ambientBgCss};"></div>` : ''}
         <div class="space-y-4 relative z-10">
           <div class="flex items-center justify-between">
             <span class="text-[11px] uppercase tracking-widest text-slate-400 font-medium">
