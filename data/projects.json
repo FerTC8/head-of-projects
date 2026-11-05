@@ -24,5 +24,31 @@
     ],
     "techStack": ["HTML5 Nativo", "CSS Translúcido (blur 28px)", "TypeScript", "Vercel Serverless", "Upstash Redis", "LocalStorage"],
     "diagram": "graph TD\n  Client[Cliente Apple Fluid Interface] --> |Auto-escalado| Canvas[Lienzo Vectorial autoFitCanvas]\n  Client --> |Sandbox Aislado| LocalStorage[(LocalStorage 100% Offline)]\n  Client --> |Persistencia Híbrida| KV[API Serverless Vercel / Upstash Redis]\n  Canvas --> |Exportación Estricta 1 Página| Print[Motor de Impresión PDF / AirPrint]"
+  },
+  {
+    "id": "ikea-wishlist",
+    "title": "IKEA Wishlist & In-Store Shopping Board",
+    "category": "Herramientas de Productividad & Web Apps Móviles",
+    "tagline": "Tablero visual interactivo de compras optimizado para piso de venta en tiendas físicas IKEA, con persistencia local en dispositivo, contador dinámico en vivo y assets autocontenidos sin hotlinks externos.",
+    "liveUrl": "https://ikea-wishlist-fertc8.vercel.app/",
+    "githubUrl": "https://github.com/FerTC8/ikea-wishlist",
+    "repoPath": "ikea-wishlist-site",
+    "status": "Producción en Vivo",
+    "featured": true,
+    "metrics": [
+      { "label": "Peso de Carga", "value": "< 15 KB" },
+      { "label": "Resiliencia", "value": "100% Autocontenido" },
+      { "label": "Latencia UI", "value": "0ms local" },
+      { "label": "Fluidez", "value": "60fps (CSS Grid)" }
+    ],
+    "highlights": [
+      "Arquitectura 100% autocontenida sin hotlinks externos: imágenes hero descargadas y alojadas localmente a 1400×1400px en /images/.",
+      "Persistencia de estado en dispositivo con LocalStorage API vinculado a data-id únicos por artículo para sobrevivir cierres de app en tienda.",
+      "Contador dinámico en cabecera con recálculo síncrono en vivo (X / Total In Cart).",
+      "Diseño ergonómico touch-first en CSS Grid nativo (4 columnas en escritorio, 2 columnas en móvil) optimizado para una sola mano.",
+      "Despliegue multi-canal en Vercel Edge Network y GitHub Pages con sincronización continua vía Git."
+    ],
+    "techStack": ["HTML5 Semántico", "CSS Grid & Flexbox Nativo", "JavaScript Vanilla (ES6+)", "LocalStorage API", "Vercel Edge Network", "GitHub Pages"],
+    "diagram": "graph TD\n  User[Usuario en Tienda (Móvil)] --> |Tap to Cart| Card[Tarjeta de Producto (data-id)]\n  Card --> |Persistencia| Storage[(LocalStorage en Dispositivo)]\n  Card --> |Recomputación en Vivo| Counter[Contador Cabecera (X / Total)]\n  Assets[Assets Locales /images] --> |Sin Hotlinks| Card\n  GitHub[Repo FerTC8/ikea-wishlist] --> |CI/CD| Vercel[Vercel Edge CDN]\n  Vercel --> |Despliegue Inmediato| User"
   }
 ]
