@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio de Proyectos y Consultoría</title>
+  <link rel="stylesheet" href="./src/styles/main.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen selection:bg-blue-600 selection:text-white antialiased bg-[#0c0e14] text-slate-100">
+
+  <!-- Navegación superior -->
+  <header class="sticky top-0 z-50 glass-nav px-6 py-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="#" class="flex items-center space-x-3 group">
+        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <div>
+          <span class="text-sm font-bold tracking-tight text-white block">PROYECTOS & CONSULTORÍA</span>
+          <span class="text-[11px] font-medium text-slate-400 block -mt-0.5">SISTEMAS E INTERFACES</span>
+        </div>
+      </a>
+
+      <nav class="flex items-center space-x-6 text-sm font-medium text-slate-300">
+        <a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a>
+        <a href="#servicios" class="hover:text-white transition-colors">Consultoría y Servicios</a>
+        <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Sección Principal / Portada -->
+  <section class="max-w-6xl mx-auto px-6 pt-24 pb-16 space-y-10">
+    <div class="max-w-3xl space-y-6">
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
+        Sistemas digitales, interfaces precisas y arquitecturas interactivas.
+      </h1>
+
+      <p class="text-lg sm:text-xl text-slate-300 leading-relaxed">
+        Dirección técnica y desarrollo de software con atención rigurosa a la respuesta táctil, el desempeño y la claridad en cada detalle. El trabajo habla por sí mismo.
+      </p>
+    </div>
+
+    <!-- Indicadores clave -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-white/10">
+      <div class="glass-panel rounded-2xl p-5 border border-white/10">
+        <div class="text-2xl sm:text-3xl font-bold text-white tracking-tight">&lt; 50ms</div>
+        <div class="text-xs uppercase tracking-wider text-slate-400 font-medium mt-1">Latencia en la nube</div>
+      </div>
+      <div class="glass-panel rounded-2xl p-5 border border-white/10">
+        <div class="text-2xl sm:text-3xl font-bold text-white tracking-tight">120m × 70m</div>
+        <div class="text-xs uppercase tracking-wider text-slate-400 font-medium mt-1">Telemetría espacial de precisión</div>
+      </div>
+      <div class="glass-panel rounded-2xl p-5 border border-white/10">
+        <div class="text-2xl sm:text-3xl font-bold text-white tracking-tight">60 fps</div>
+        <div class="text-xs uppercase tracking-wider text-slate-400 font-medium mt-1">Fluidez de interacción</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Proyectos -->
+  <section id="proyectos" class="max-w-6xl mx-auto px-6 py-16 space-y-8 border-t border-white/10">
+    <div>
+      <h2 class="text-3xl font-bold text-white tracking-tight">Proyectos Seleccionados</h2>
+      <p class="text-sm text-slate-400 mt-1">Sistemas construidos, arquitecturas de datos y páginas de referencia técnica.</p>
+    </div>
+
+    <!-- Cuadrícula de Proyectos -->
+    <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Generado dinámicamente -->
+    </div>
+  </section>
+
+  <!-- Sección de Servicios y Consultoría -->
+  <section id="servicios" class="max-w-6xl mx-auto px-6 py-16 space-y-10 border-t border-white/10">
+    <div class="max-w-3xl space-y-3">
+      <h2 class="text-3xl font-bold text-white tracking-tight">Consultoría y Servicios</h2>
+      <p class="text-slate-400 leading-relaxed text-sm sm:text-base">
+        Acompañamiento especializado en adopción de inteligencia artificial, establecimiento de una sólida cultura de datos orientada a la evidencia, y arquitectura de productos de alto rendimiento.
+      </p>
+    </div>
+
+    <!-- Cuadrícula de Servicios -->
+    <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Generado dinámicamente -->
+    </div>
+  </section>
+
+  <!-- Sección de Contacto Simplificada -->
+  <section id="contacto" class="max-w-6xl mx-auto px-6 py-16 border-t border-white/10 space-y-8">
+    <div class="max-w-2xl space-y-2">
+      <h2 class="text-3xl font-bold text-white tracking-tight">Hablemos de tu proyecto</h2>
+      <p class="text-slate-400 text-sm">Comunicación directa para consultoría, desarrollo o colaboración técnica.</p>
+    </div>
+
+    <div class="glass-panel rounded-2xl p-6 md:p-8 border border-white/10 max-w-2xl space-y-6">
+      <form id="inquiry-form" class="space-y-4">
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-slate-400 font-medium mb-1">Nombre</label>
+          <input type="text" id="form-name" required placeholder="Tu nombre o empresa" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-blue-500">
+        </div>
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-slate-400 font-medium mb-1">Correo Electrónico</label>
+          <input type="email" id="form-email" required placeholder="tu@correo.com" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-blue-500">
+        </div>
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-slate-400 font-medium mb-1">Mensaje o necesidad técnica</label>
+          <textarea id="form-details" rows="4" required placeholder="Describe brevemente el objetivo, duda o proyecto..." class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-blue-500"></textarea>
+        </div>
+        <button type="submit" class="apple-btn w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-md shadow-blue-600/30">
+          Enviar Mensaje
+        </button>
+      </form>
+      <div id="form-success" class="hidden text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-xl text-center">
+        Mensaje listo. Abriendo tu cliente de correo...
+      </div>
+      <div class="pt-2 text-center">
+        <a href="mailto:contact@3decibels.com" class="text-xs text-slate-400 hover:text-blue-400 transition-colors">
+          O escribe directamente a <span class="text-white font-mono">contact@3decibels.com</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal de Arquitectura del Sistema -->
+  <div id="diagram-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="glass-panel w-full max-w-4xl rounded-2xl border border-white/20 p-6 md:p-8 space-y-6 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <div>
+          <h3 id="modal-title" class="text-xl font-bold text-white">Arquitectura del Sistema</h3>
+          <p id="modal-subtitle" class="text-xs text-slate-400">Flujo de datos y componentes</p>
+        </div>
+        <button id="modal-close-btn" class="apple-btn p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white" aria-label="Cerrar modal">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="bg-[#0f1219] rounded-xl p-6 border border-white/5 overflow-x-auto min-h-[220px] flex items-center justify-center">
+        <div id="modal-diagram-container" class="w-full text-center"></div>
+      </div>
+
+      <div class="flex justify-between items-center pt-2">
+        <a id="modal-page-link" href="#" class="apple-btn text-xs font-semibold px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white shadow-sm">
+          Abrir página del proyecto →
+        </a>
+        <button id="modal-done-btn" class="apple-btn text-xs font-medium px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-white">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pie de página -->
+  <footer class="border-t border-white/10 py-8 px-6 text-center text-xs text-slate-500 space-y-1">
+    <p>Proyectos y Consultoría Técnica • Sistemas de Alta Fidelidad</p>
+  </footer>
+
+  <script type="module" src="./src/main.ts"></script>
+</body>
+</html>

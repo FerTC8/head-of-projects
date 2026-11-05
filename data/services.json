@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ai-consulting",
+    "title": "Consultoría en IA y Herramientas de Inteligencia Artificial",
+    "badge": "Estratégico",
+    "timeline": "Acompañamiento flexible",
+    "tagline": "Evaluación, selección e integración práctica de modelos de lenguaje, agentes autónomos y herramientas de IA en equipos técnicos y operativos.",
+    "deliverables": [
+      "Auditoría de flujos de trabajo para identificar oportunidades reales de automatización con IA",
+      "Implementación de herramientas de IA aplicada y agentes adaptados a la infraestructura existente",
+      "Definición de directrices de seguridad, privacidad y buenas prácticas de uso",
+      "Capacitación de equipos para potenciar la productividad sin generar deuda técnica"
+    ],
+    "idealFor": "Equipos y organizaciones que buscan incorporar IA de forma pragmática, medible y orientada a resultados."
+  },
+  {
+    "id": "data-culture",
+    "title": "Cultura de Datos y Análisis",
+    "badge": "Transformación",
+    "timeline": "Sprints de 2 a 4 semanas",
+    "tagline": "Transición de la intuición a la toma de decisiones respaldada por evidencia, estructurando métricas claras y democratizando el acceso a los datos.",
+    "deliverables": [
+      "Diagnóstico de madurez analítica y diseño de hoja de ruta para una cultura data-driven",
+      "Modelado de métricas clave (KPIs), instrumentación de telemetría y calidad de datos",
+      "Tableros de control ejecutivos y análisis cuantitativo de comportamiento y rendimiento",
+      "Talleres prácticos de pensamiento analítico para eliminar silos de información"
+    ],
+    "idealFor": "Empresas en crecimiento que necesitan que cada decisión de producto y negocio se sustente en datos confiables."
+  },
+  {
+    "id": "product-engineering",
+    "title": "Arquitectura de Producto e Interfaces Fluidas",
+    "badge": "Especialidad",
+    "timeline": "2 a 4 semanas por ciclo",
+    "tagline": "Desarrollo de software con extremo cuidado en la física de interacción, respuesta visual inmediata y estabilidad técnica.",
+    "deliverables": [
+      "Interfaces con animaciones elásticas, jerarquía visual limpia y ergonomía táctil",
+      "Arquitecturas desacopladas, tipadas y listas para despliegue en producción",
+      "Sincronización en tiempo real con tolerancia a fallos y funcionamiento sin conexión",
+      "Código mantenible, documentado y sin sobrecarga de dependencias"
+    ],
+    "idealFor": "Proyectos que priorizan una experiencia de usuario distinguida y un estándar técnico impecable."
+  },
+  {
+    "id": "custom-tools",
+    "title": "Herramientas Internas y Automatización de Procesos",
+    "badge": "Eficiencia",
+    "timeline": "1 a 2 semanas",
+    "tagline": "Construcción de sistemas a la medida para resolver fricciones operativas, generación de documentos y flujos repetitivos.",
+    "deliverables": [
+      "Aplicaciones web dedicadas para cotizaciones, facturación o gestión operativa",
+      "Generación automatizada de reportes y documentos vectoriales de alta precisión",
+      "Scripts de depuración y optimización de infraestructura de trabajo",
+      "Integración entre bases de datos, APIs de terceros y almacenamiento en la nube"
+    ],
+    "idealFor": "Estudios profesionales y negocios que desean multiplicar su capacidad operativa sin ampliar la burocracia."
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "3decibels-studio",
+    "title": "3Decibels Studio",
+    "category": "Herramientas de Productividad",
+    "tagline": "Plataforma de cotización y facturación con interfaz fluida, estados táctiles y sincronización en la nube multidispositivo.",
+    "repoPath": "invoice-generator-v4",
+    "status": "Producción",
+    "featured": true,
+    "metrics": [
+      { "label": "Latencia en nube", "value": "< 50ms" },
+      { "label": "Modo sin conexión", "value": "100%" },
+      { "label": "Diseño táctil", "value": "Física y Fluidez" }
+    ],
+    "highlights": [
+      "Interfaz con materiales translúcidos, desenfoque de fondo y respuesta elástica táctil en cada interacción.",
+      "Sincronización en tiempo real entre dispositivos mediante almacenamiento distribuido en la nube.",
+      "Motor de impresión y exportación a PDF de alta fidelidad, con precisión milimétrica.",
+      "Gestión de perfiles de cliente, cláusulas comerciales y pasarelas de pago configurables."
+    ],
+    "techStack": ["TypeScript", "Tailwind CSS", "Vercel KV", "HTML5 Canvas/Print", "LocalStorage"],
+    "diagram": "graph TD\n  Client[Cliente Web Fluido] --> |Caché local| LocalStorage[(Estado Local)]\n  Client --> |Sincronización en vivo| KV[API Serverless KV]\n  KV --> |Persistencia distribuida| CloudDB[(Base de Datos)]\n  Client --> |Renderizado vectorial| Print[Motor de PDF / Impresión]"
+  },
+  {
+    "id": "omnimorph",
+    "title": "OMNIMORPH",
+    "category": "Telemetría y Datos Espaciales",
+    "tagline": "Motor de análisis táctico y seguimiento de coordenadas espaciales en 2D de alta resolución.",
+    "repoPath": "omnimorph",
+    "status": "Producción",
+    "featured": true,
+    "metrics": [
+      { "label": "Resolución de campo", "value": "120m × 70m" },
+      { "label": "Escala de coordenadas", "value": "1cm" },
+      { "label": "Seguimiento simultáneo", "value": "22 Jugadores + Balón" }
+    ],
+    "highlights": [
+      "Sistema de coordenadas normalizado que mapea medidas físicas en centímetros a un lienzo vectorial interactivo.",
+      "Desglose de eventos tácticos, mapas de calor y cálculo de polígonos convexos para análisis avanzado.",
+      "Reconstrucción espacial histórica demostrada con datos oficiales de partidos internacionales.",
+      "Geometría computacional para cálculo de líneas de pase y suavizado de trayectorias en tiempo real."
+    ],
+    "techStack": ["Python", "Geometría Espacial", "SVG / Canvas", "TypeScript", "Telemetría de Datos"],
+    "diagram": "graph LR\n  GPS[Telemetría de Datos] --> Norm[Normalizador de Coordenadas (12000x7000cm)]\n  Norm --> Pitch[Proyección Espacial del Campo]\n  Pitch --> Heatmap[Mapas de Calor y Polígonos]\n  Pitch --> Pass[Cálculo de Líneas de Pase]"
+  },
+  {
+    "id": "medisafe-native",
+    "title": "Medisafe Tracker",
+    "category": "Aplicación Móvil Nativa",
+    "tagline": "Seguimiento de horarios y adherencia médica con arquitectura nativa y persistencia local.",
+    "repoPath": "medisafe-copycat",
+    "status": "Desarrollo",
+    "featured": true,
+    "metrics": [
+      { "label": "Rendimiento", "value": "60fps continuo" },
+      { "label": "Consumo de batería", "value": "0% en segundo plano" },
+      { "label": "Persistencia", "value": "Local y Privada" }
+    ],
+    "highlights": [
+      "Desarrollado de forma nativa con jerarquía declarativa y respuesta háptica táctil.",
+      "Línea de tiempo interactiva con registro de tomas y ventanas de recordatorio inteligentes.",
+      "Clasificación visual por color e iconografía de alto contraste.",
+      "Arquitectura centrada en la privacidad con almacenamiento de datos local sin dependencias externas obligatorias."
+    ],
+    "techStack": ["Swift", "SwiftUI", "UserNotifications", "CoreHaptics", "Local Storage"],
+    "diagram": "graph TD\n  UI[Vistas Nativas SwiftUI] --> VM[ViewModel de Adherencia]\n  VM --> Engine[Motor Local de Notificaciones]\n  Engine --> Notif[Centro de Notificaciones del Sistema]\n  Engine --> DB[(Almacenamiento Local Seguro)]"
+  },
+  {
+    "id": "ikea-wishlist",
+    "title": "Catálogo Espacial Interactivo",
+    "category": "Visualización y Comercio",
+    "tagline": "Curaduría visual de artículos y organización interactiva de espacios residenciales.",
+    "repoPath": "ikea-wishlist-site",
+    "status": "Producción",
+    "featured": false,
+    "metrics": [
+      { "label": "Carga inicial", "value": "Instantánea" },
+      { "label": "Diseño", "value": "Adaptativo" },
+      { "label": "Interacción", "value": "Disposición Espacial" }
+    ],
+    "highlights": [
+      "Fichas interactivas de producto con detalle técnico, referencias de catálogo y cálculo de coste.",
+      "Plano interactivo para distribución y combinación de mobiliario en espacios determinados.",
+      "Arquitectura ligera sin librerías pesadas para máxima velocidad de respuesta en cualquier pantalla."
+    ],
+    "techStack": ["JavaScript", "CSS Moderno", "Lienzo SVG", "Diseño Adaptativo"],
+    "diagram": "graph LR\n  Catalog[Datos de Catálogo] --> Inspector[Inspector Visual de Artículos]\n  Inspector --> Staging[Plano Espacial de Distribución]\n  Staging --> Cart[Presupuesto y Lista de Materiales]"
+  },
+  {
+    "id": "macos-storage-cleaner",
+    "title": "Optimizador de Almacenamiento",
+    "category": "Automatización y Sistema",
+    "tagline": "Diagnóstico inteligente de espacio en disco y depuración controlada para entornos de desarrollo.",
+    "repoPath": "macOS-Storage-Cleaner",
+    "status": "Producción",
+    "featured": false,
+    "metrics": [
+      { "label": "Espacio recuperado", "value": "40GB+ promedio" },
+      { "label": "Seguridad", "value": "Modo de prueba previo" },
+      { "label": "Entorno", "value": "macOS" }
+    ],
+    "highlights": [
+      "Identificación selectiva de cachés de compilación, capas de contenedores y dependencias huérfanas.",
+      "Interfaz de línea de comandos con confirmación explícita para evitar pérdidas involuntarias.",
+      "Reporte claro y detallado de volumen liberado tras cada ejecución."
+    ],
+    "techStack": ["Zsh", "Automatización Shell", "APIs del Sistema", "Utilidades POSIX"],
+    "diagram": "graph TD\n  Scanner[Escáner de Disco] --> Rules[Reglas de Depuración Segura]\n  Rules --> Audit[Reporte Previo sin Borrado]\n  Audit --> |Confirmación explícita| Purge[Depuración Controlada]"
+  }
+]
