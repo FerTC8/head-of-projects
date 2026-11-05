@@ -1,5 +1,38 @@
 [
   {
+    "id": "omnimorph",
+    "title": "OMNIMORPH — AI Sports Analytics",
+    "category": "Telemetría, Datos Espaciales & IA Gobernada",
+    "tagline": "Motor de análisis táctico y telemetría espacial con homografía adaptativa y verificación anti-alucinaciones con IBM Granite.",
+    "githubUrl": "https://github.com/FerTC8/omnimorph-brasil-alemania-2014",
+    "teamRepoUrl": "https://github.com/Rogelio756/omnimorph-ibm-ai-lab",
+    "repoPath": "omnimorph-brasil-alemania-2014",
+    "featured": true,
+    "customPage": true,
+    "metrics": [
+      { "label": "Gol Müller (11')", "value": "11.3 m" },
+      { "label": "Cancha 2D", "value": "120m × 70m" },
+      { "label": "Tracking 25fps", "value": "22 + Balón" },
+      { "label": "IA Gobernada", "value": "Granite 4" }
+    ],
+    "highlights": [
+      "Reconstrucción matemática y espacial del histórico Brasil 1–7 Alemania 2014.",
+      "Curaduría de fuentes oficiales y homologación técnica (PROCEDENCIA.md y FUENTES.md).",
+      "Monitor MATEO sincronizado a reloj (frame, t) con Video, Radar 2D, Métricas y Crónica.",
+      "Modelo fundacional ibm/granite-4-h-small en IBM Cloud watsonx con verificador determinista de hechos deportivos.",
+      "Contrato de ventanas tácticas de 4 segundos con suavizado cinemático Savitzky-Golay sin colisión de identidades."
+    ],
+    "techStack": [
+      "IBM Granite 4",
+      "watsonx.ai",
+      "Python / OpenCV",
+      "YOLOv8x-pose",
+      "Datos Espaciales SVG",
+      "ByteTrack"
+    ],
+    "diagram": "graph TD\n  Local[1. Percepción GPU Local: YOLOv8x + ByteTrack + Homografía Ht] --> |Ventanas 4s / Telemetría| Engine[Motor Cinemático: Savitzky-Golay]\n  Engine --> |Telemetría Sincronizada| IBM[2. IBM Cloud watsonx: Granite 4 + ADK]\n  IBM --> |Auditoría M3 Anti-alucinación| Gov[watsonx.governance: chat_audit.jsonl]\n  Gov --> |Crónica y Hechos Deportivos| Dashboard[3. Dashboard MATEO: 4 Paneles + Audio TTS]"
+  },
+  {
     "id": "3decibels-studio",
     "title": "3Decibels Quote & Invoice Studio",
     "category": "Productividad & Interfaz",

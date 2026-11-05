@@ -37,6 +37,19 @@ function escapeHtml(str) {
 }
 
 function generateProjectPage(project) {
+  if (project.customPage) {
+    const srcOut = path.join(srcPagesDir, `${project.id}.html`);
+    if (fs.existsSync(srcOut)) {
+      const customContent = fs.readFileSync(srcOut, 'utf8');
+      const rootOut = path.join(rootPagesDir, `${project.id}.html`);
+      const distOut = path.join(distPagesDir, `${project.id}.html`);
+      fs.writeFileSync(rootOut, customContent, 'utf8');
+      fs.writeFileSync(distOut, customContent, 'utf8');
+      console.log(`✓ Synchronized custom landing page: pages/${project.id}.html`);
+      return;
+    }
+  }
+
   const metricsHtml = (project.metrics || [])
     .map(
       (m) => `
@@ -209,7 +222,7 @@ function preRenderIndex() {
           </div>
 
           <!-- Métricas clave -->
-          <div class="grid grid-cols-3 gap-2 py-3 border-y border-white/5">
+          <div class="grid ${(p.metrics || []).length > 3 ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-3'} gap-2 py-3 border-y border-white/5">
             ${p.metrics
               .map(
                 (m) => `
@@ -256,8 +269,8 @@ function preRenderIndex() {
               <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
             </a>
           ` : `
-            <a href="./pages/${p.id}.html" class="apple-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/15 text-white flex items-center shrink-0">
-              Ver Ficha →
+            <a href="./pages/${p.id}.html" class="apple-btn text-xs font-semibold px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white shadow-sm flex items-center shrink-0">
+              Ver Proyecto →
             </a>
           `}
         </div>
@@ -272,12 +285,9 @@ function preRenderIndex() {
       (s) => `
       <div class="glass-panel card-hover rounded-2xl p-6 md:p-8 border border-white/10 flex flex-col justify-between space-y-6">
         <div class="space-y-4">
-          <div class="flex items-center justify-between">
+          <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-blue-400 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
               ${escapeHtml(s.badge)}
-            </span>
-            <span class="text-xs font-medium text-slate-400 bg-white/5 px-2.5 py-1 rounded-lg border border-white/5">
-              ${escapeHtml(s.timeline)}
             </span>
           </div>
 

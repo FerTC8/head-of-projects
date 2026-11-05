@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OMNIMORPH — AI Sports Analytics | Arquitectura y Especificación Técnica</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        darkMode: true,
+        background: '#161922',
+        primaryColor: '#0071e3',
+        primaryTextColor: '#f8fafc',
+        primaryBorderColor: 'rgba(255, 255, 255, 0.15)',
+        lineColor: '#60a5fa',
+        secondaryColor: '#1e293b',
+        tertiaryColor: '#0f172a'
+      }
+    });
+  </script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      background-color: #0c0e14;
+      color: #f8fafc;
+    }
+    .glass-panel {
+      background: rgba(22, 25, 34, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .apple-btn {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .apple-btn:active {
+      transform: scale(0.97);
+    }
+    .text-gradient-ibm {
+      background: linear-gradient(135deg, #FFFFFF 20%, #A6C8FF 60%, #0F62FE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-gradient-pitch {
+      background: linear-gradient(135deg, #E6FFFA 20%, #34D399 70%, #059669 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="min-h-screen selection:bg-blue-600 selection:text-white antialiased bg-[#0c0e14] text-slate-100">
+
+  <!-- Navegación superior -->
+  <header class="sticky top-0 z-50 glass-panel border-b border-white/10 px-6 py-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center text-sm font-medium text-slate-400 hover:text-white transition-colors">
+          <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Volver a Proyectos
+        </a>
+        <span class="text-white/20">|</span>
+        <span class="text-xs uppercase tracking-wider text-blue-400 font-semibold px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20">
+          Telemetría, Datos Espaciales &amp; IA Gobernada
+        </span>
+      </div>
+      <div class="flex items-center space-x-3">
+        <a href="https://github.com/FerTC8/omnimorph-brasil-alemania-2014" target="_blank" rel="noopener noreferrer" class="apple-btn text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-1.5 rounded-lg shadow-sm flex items-center">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-300 mr-1.5 animate-pulse"></span>
+          Repo de Datos ↗
+        </a>
+        <a href="https://github.com/Rogelio756/omnimorph-ibm-ai-lab" target="_blank" rel="noopener noreferrer" class="apple-btn text-xs font-semibold bg-white/10 hover:bg-white/15 text-white px-3 py-1.5 rounded-lg border border-white/10">
+          Repo del Equipo ↗
+        </a>
+        <a href="../index.html#contacto" class="apple-btn text-xs font-semibold bg-white/10 hover:bg-white/15 text-white px-3 py-1.5 rounded-lg border border-white/10">
+          Contactar
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12 space-y-16">
+
+    <!-- Sección de Portada del Proyecto -->
+    <section class="space-y-6">
+      
+      <!-- Badge de Programa -->
+      <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-950/60 border border-blue-500/30 text-xs text-blue-300 font-mono">
+        <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+        <span>IBM SkillsBuild AI Experiential Learning Lab — México 2026</span>
+        <span class="text-white/40">|</span>
+        <span class="text-emerald-400 font-semibold">Track 3: Sports Analytics</span>
+      </div>
+
+      <div class="space-y-3">
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-white">
+          OMNIMORPH — AI Sports Analytics
+        </h1>
+        <p class="text-xl text-slate-300 max-w-3xl leading-relaxed">
+          Motor de análisis táctico y telemetría espacial con homografía adaptativa y verificación anti-alucinaciones con IBM Granite.
+        </p>
+      </div>
+
+      <!-- Credencial Fernando Tort y Botones -->
+      <div class="flex flex-wrap items-center gap-4 pt-2">
+        <div class="flex items-center space-x-3 px-4 py-2 rounded-xl glass-panel border border-white/10">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-emerald-500 flex items-center justify-center font-bold text-xs text-white">
+            FT
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-white">Fernando Tort (@FerTC8)</div>
+            <div class="text-[11px] text-slate-400">Arquitectura de Datos &amp; Sports Analytics</div>
+          </div>
+        </div>
+
+        <a href="https://github.com/FerTC8/omnimorph-brasil-alemania-2014" target="_blank" rel="noopener noreferrer" class="apple-btn inline-flex items-center px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-lg shadow-blue-600/30">
+          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          Dataset de Telemetría (FerTC8)
+        </a>
+
+        <a href="https://github.com/Rogelio756/omnimorph-ibm-ai-lab" target="_blank" rel="noopener noreferrer" class="apple-btn inline-flex items-center px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-white font-medium text-sm border border-white/10">
+          Repositorio Central del Equipo
+        </a>
+      </div>
+
+      <!-- Métricas rápidas verificadas -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 pt-4">
+        
+        <div class="glass-panel rounded-xl p-4 border border-white/10 space-y-1">
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Gol Müller (11')</div>
+          <div class="text-2xl lg:text-3xl font-bold text-emerald-400 tracking-tight font-mono">11.3 m</div>
+          <p class="text-[11px] text-slate-400 leading-tight">Distancia euclidiana exacta calculada desde coordenadas normalizadas.</p>
+        </div>
+
+        <div class="glass-panel rounded-xl p-4 border border-white/10 space-y-1">
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Cancha 2D</div>
+          <div class="text-2xl lg:text-3xl font-bold text-white tracking-tight font-mono">120m &times; 70m</div>
+          <p class="text-[11px] text-slate-400 leading-tight">Plano cartesiano normalizado en centímetros (12,000 &times; 7,000 cm).</p>
+        </div>
+
+        <div class="glass-panel rounded-xl p-4 border border-white/10 space-y-1">
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Tracking 25fps</div>
+          <div class="text-2xl lg:text-3xl font-bold text-blue-400 tracking-tight font-mono">22 + Balón</div>
+          <p class="text-[11px] text-slate-400 leading-tight">Seguimiento continuo sin colisión de identidades ni IDs repetidos.</p>
+        </div>
+
+        <div class="glass-panel rounded-xl p-4 border border-white/10 space-y-1">
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Reconstrucción</div>
+          <div class="text-2xl lg:text-3xl font-bold text-white tracking-tight font-mono">8 Goles</div>
+          <p class="text-[11px] text-slate-400 leading-tight">Histórico Brasil 1–7 Alemania mapeado con xG y zonas de remate.</p>
+        </div>
+
+        <div class="glass-panel rounded-xl p-4 border border-white/10 space-y-1 sm:col-span-2 lg:col-span-1">
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">IA Gobernada</div>
+          <div class="text-2xl lg:text-3xl font-bold text-purple-400 tracking-tight font-mono">Granite 4</div>
+          <p class="text-[11px] text-slate-400 leading-tight">ibm/granite-4-h-small en watsonx con verificador determinista.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Monitor MATEO de 4 Paneles -->
+    <section class="glass-panel rounded-2xl p-6 md:p-8 space-y-6 border border-blue-500/20">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-4 gap-2">
+        <div>
+          <h2 class="text-xl font-semibold text-white">Monitor Sincronizado de 4 Paneles (MATEO)</h2>
+          <p class="text-sm text-slate-400">Sincronización estricta por reloj común (frame, t) para video, radar, telemetría y crónica generativa</p>
+        </div>
+        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full shrink-0">
+          Ventanas de 4.0s
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <!-- Cuadrante 1: Video Broadcast -->
+        <div class="p-4 rounded-xl bg-black/40 border border-white/5 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-semibold text-blue-400 flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-blue-500"></span> Cuadrante 1 · Video Broadcast
+            </span>
+            <span class="text-[10px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">YOLOv8x + Pose</span>
+          </div>
+          <div class="aspect-video bg-slate-900/60 rounded-lg border border-white/5 flex flex-col items-center justify-center p-4 text-center">
+            <svg class="w-10 h-10 text-blue-400/60 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+            <p class="text-xs text-slate-200 font-medium">Clip de 60s Semifinal 2014</p>
+            <p class="text-[11px] text-slate-400 mt-0.5">Detección continua de jugadores, balón y costura de identidad.</p>
+          </div>
+        </div>
+
+        <!-- Cuadrante 2: Radar 2D Cenital -->
+        <div class="p-4 rounded-xl bg-black/40 border border-white/5 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-semibold text-emerald-400 flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Cuadrante 2 · Radar 2D Cenital
+            </span>
+            <span class="text-[10px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Homografía Ht</span>
+          </div>
+          <div class="aspect-video bg-[#09180f] rounded-lg border border-emerald-500/20 overflow-hidden flex items-center justify-center p-2">
+            <img src="/images/omnimorph/radar_gol_muller.svg" alt="Radar Cenital 2D del Gol de Müller" class="w-full h-full object-contain">
+          </div>
+        </div>
+
+        <!-- Cuadrante 3: Métricas Tácticas -->
+        <div class="p-4 rounded-xl bg-black/40 border border-white/5 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-semibold text-yellow-400 flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-yellow-500"></span> Cuadrante 3 · Métricas Tácticas
+            </span>
+            <span class="text-[10px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Savitzky-Golay</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div class="p-2.5 rounded-lg bg-white/5 border border-white/5">
+              <div class="text-[10px] text-slate-400 uppercase font-mono">Altura Bloque</div>
+              <div class="text-base font-bold text-white font-mono mt-0.5">38.4 m</div>
+              <div class="text-[10px] text-emerald-400">Bloque medio</div>
+            </div>
+            <div class="p-2.5 rounded-lg bg-white/5 border border-white/5">
+              <div class="text-[10px] text-slate-400 uppercase font-mono">Compacidad</div>
+              <div class="text-base font-bold text-white font-mono mt-0.5">24.2 m</div>
+              <div class="text-[10px] text-blue-400">Estructura compacta</div>
+            </div>
+            <div class="p-2.5 rounded-lg bg-white/5 border border-white/5">
+              <div class="text-[10px] text-slate-400 uppercase font-mono">Presión</div>
+              <div class="text-base font-bold text-yellow-400 font-mono mt-0.5">Baja (Desajuste)</div>
+              <div class="text-[10px] text-slate-400">Separación Müller: 3.4m</div>
+            </div>
+            <div class="p-2.5 rounded-lg bg-white/5 border border-white/5">
+              <div class="text-[10px] text-slate-400 uppercase font-mono">Centroide</div>
+              <div class="text-base font-bold text-white font-mono mt-0.5">X: 32.1 | Y: 35.8</div>
+              <div class="text-[10px] text-slate-400">120 &times; 70 m</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cuadrante 4: Crónica Generativa & Voz TTS -->
+        <div class="p-4 rounded-xl bg-black/40 border border-white/5 space-y-3 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-mono font-semibold text-purple-400 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-purple-500"></span> Cuadrante 4 · Crónica &amp; Voz TTS
+              </span>
+              <span class="text-[10px] font-mono text-blue-300 bg-blue-500/10 px-2 py-0.5 rounded">IBM Granite 4</span>
+            </div>
+            <div class="p-3 rounded-lg bg-white/5 border border-white/5 text-xs text-slate-300 leading-relaxed font-sans">
+              <span class="text-blue-300 font-mono text-[11px] block mb-1">Narración Generada:</span>
+              &ldquo;Minuto 11: Centro desde el córner derecho de Toni Kroos al punto de penal. David Luiz queda atrapado en el tráfico y Thomas Müller entra completamente desmarcado para rematar con la cara interna del pie derecho. Gol de Alemania.&rdquo;
+            </div>
+          </div>
+          <div class="flex items-center justify-between pt-2 border-t border-white/5 text-[11px] font-mono text-slate-400">
+            <span class="text-emerald-400">✓ Verificador Anti-Alucinación: PASS</span>
+            <span>Selector: Audio Transmisión / TTS</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Galería Visual: Radars Vectoriales SVG & 8 Goles -->
+    <section class="space-y-8">
+      <div class="border-b border-white/10 pb-4">
+        <h2 class="text-xl font-semibold text-white">Cartografía Táctica Vectorial SVG</h2>
+        <p class="text-sm text-slate-400">Mapas vectoriales autónomos generados para el desglose geométrico del partido</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Radar Gol de Müller -->
+        <div class="glass-panel rounded-2xl p-6 border border-white/10 space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-base font-bold text-white">Radar Táctico · Gol Thomas Müller (0–1, Min 11')</h3>
+              <p class="text-xs text-slate-400">Desmarque al espacio libre y bloqueo en área chica</p>
+            </div>
+            <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">
+              11.3 m euclidianos
+            </span>
+          </div>
+
+          <div class="rounded-xl overflow-hidden border border-white/10 bg-[#09180f]">
+            <img src="/images/omnimorph/radar_gol_muller.svg" alt="Radar táctico del gol de Thomas Müller al minuto 11" class="w-full h-auto">
+          </div>
+
+          <div class="text-xs text-slate-300 space-y-1.5 p-3 rounded-xl bg-black/40 border border-white/5">
+            <p><strong class="text-emerald-400">&bull; Remate Müller (13):</strong> Conecta en coordenadas <span class="font-mono text-slate-400">(X: 9.2m, Y: 41.5m)</span> con 3.4m de separación sobre la marca.</p>
+            <p><strong class="text-blue-400">&bull; Pantalla táctica:</strong> Bloqueo combinado Klose-Höwedes que neutraliza a David Luiz en el primer palo.</p>
+          </div>
+        </div>
+
+        <!-- Mapa de los 8 Goles -->
+        <div class="glass-panel rounded-2xl p-6 border border-white/10 space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-base font-bold text-white">Mapa de Remates · Los 8 Goles de la Semifinal</h3>
+              <p class="text-xs text-slate-400">Distribución de remates y zonas de impacto</p>
+            </div>
+            <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded">
+              Brasil 1–7 Alemania
+            </span>
+          </div>
+
+          <div class="rounded-xl overflow-hidden border border-white/10 bg-[#09180f]">
+            <img src="/images/omnimorph/mapa_8_goles.svg" alt="Mapa de remates de los 8 goles de Brasil vs Alemania" class="w-full h-auto">
+          </div>
+
+          <div class="text-xs text-slate-300 space-y-1.5 p-3 rounded-xl bg-black/40 border border-white/5">
+            <p><strong class="text-emerald-400">&bull; Alemania (7 goles):</strong> 6 remates dentro del área grande y chica (distancia promedio &lt; 10.5 m).</p>
+            <p><strong class="text-yellow-400">&bull; Brasil (1 gol):</strong> Remate de Oscar al min 90' en transición rápida desde 11.5 m.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tabla Comparativa 1T vs 2T Oficial -->
+      <div class="glass-panel rounded-2xl p-6 border border-white/10 space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-base font-bold text-white">Comparativa Oficial Homologada · 1T vs 2T</h3>
+          <span class="text-xs text-slate-400 font-mono">FIFA / Opta / StatsBomb / FBref</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs text-left border-collapse">
+            <thead>
+              <tr class="border-b border-white/10 text-slate-400 font-mono uppercase text-[11px]">
+                <th class="py-2.5 px-3">Métrica Oficial</th>
+                <th class="py-2.5 px-3 text-center text-yellow-400">Brasil (1T)</th>
+                <th class="py-2.5 px-3 text-center text-emerald-400">Alemania (1T)</th>
+                <th class="py-2.5 px-3 text-center text-yellow-400">Brasil (2T)</th>
+                <th class="py-2.5 px-3 text-center text-emerald-400">Alemania (2T)</th>
+                <th class="py-2.5 px-3 text-center font-bold text-white">Total Partido</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/5 font-mono text-slate-300">
+              <tr>
+                <td class="py-2 px-3 font-sans font-medium text-white">Marcador</td>
+                <td class="py-2 px-3 text-center text-yellow-400">0</td>
+                <td class="py-2 px-3 text-center text-emerald-400 font-bold">5</td>
+                <td class="py-2 px-3 text-center text-yellow-400">1</td>
+                <td class="py-2 px-3 text-center text-emerald-400 font-bold">2</td>
+                <td class="py-2 px-3 text-center font-bold text-white">1 – 7</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-sans font-medium text-white">Tiros Totales (A puerta)</td>
+                <td class="py-2 px-3 text-center">2 (1)</td>
+                <td class="py-2 px-3 text-center text-emerald-300 font-bold">10 (9)</td>
+                <td class="py-2 px-3 text-center">16 (7)</td>
+                <td class="py-2 px-3 text-center text-emerald-300">4 (1)</td>
+                <td class="py-2 px-3 text-center font-bold text-white">18(8) vs 14(10)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-sans font-medium text-white">Goles Esperados (xG)</td>
+                <td class="py-2 px-3 text-center">0.12</td>
+                <td class="py-2 px-3 text-center text-emerald-300 font-bold">2.84</td>
+                <td class="py-2 px-3 text-center">1.13</td>
+                <td class="py-2 px-3 text-center text-emerald-300 font-bold">0.91</td>
+                <td class="py-2 px-3 text-center font-bold text-white">1.25 vs 3.75</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-sans font-medium text-white">Posesión</td>
+                <td class="py-2 px-3 text-center">47%</td>
+                <td class="py-2 px-3 text-center">53%</td>
+                <td class="py-2 px-3 text-center">56%</td>
+                <td class="py-2 px-3 text-center">44%</td>
+                <td class="py-2 px-3 text-center font-bold text-white">48% – 52%</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-sans font-medium text-white">Atajadas Guardameta</td>
+                <td class="py-2 px-3 text-center">2</td>
+                <td class="py-2 px-3 text-center">1</td>
+                <td class="py-2 px-3 text-center">1</td>
+                <td class="py-2 px-3 text-center text-emerald-300 font-bold">6 (Neuer)</td>
+                <td class="py-2 px-3 text-center font-bold text-white">3 vs 7</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Arquitectura y Diseño del Sistema -->
+    <section class="glass-panel rounded-2xl p-6 md:p-8 space-y-6">
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <div>
+          <h2 class="text-xl font-semibold text-white">Arquitectura Híbrida de 3 Bloques</h2>
+          <p class="text-sm text-slate-400">Flujo distribuido de alta velocidad: Percepción Local &rarr; IBM Cloud watsonx &rarr; Tablero Web</p>
+        </div>
+        <span class="text-xs text-slate-400 bg-white/5 px-2.5 py-1 rounded border border-white/10">Diagrama en vivo</span>
+      </div>
+
+      <div class="bg-[#0f1219] rounded-xl p-6 border border-white/5 overflow-x-auto">
+        <pre class="mermaid text-center">
+graph TD
+  Video[Transmisión Broadcast Mineirão 2014] --> B1[1. Percepción GPU Local]
+  B1 --> |YOLOv8x + ByteTrack| Tracks[Tracking 22 Jugadores + Balón]
+  B1 --> |OpenCV Homografía Ht| Geo[Cancha Normalizada 120x70 m]
+  Tracks & Geo --> Engine[Motor Cinemático: Savitzky-Golay + Ventanas 4s]
+  Engine --> |Telemetría Sincronizada| IBM[2. IBM Cloud watsonx]
+  IBM --> |ibm/granite-4-h-small| Granite[Generación Crónica Táctica]
+  Granite --> Verificador[chat_verificador.py Anti-alucinación M3]
+  Verificador --> |chat_audit.jsonl PASS| Audio[3. Dashboard MATEO & TTS]
+  Audio --> Dashboard[4 Paneles Sincronizados a Reloj frame, t]
+        </pre>
+      </div>
+    </section>
+
+    <!-- Mi Contribución Técnica y Tecnologías -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- Mi Contribución Técnica (2 columnas) -->
+      <section class="lg:col-span-2 glass-panel rounded-2xl p-6 md:p-8 space-y-6">
+        <h2 class="text-xl font-semibold text-white">Mi Contribución Técnica al Proyecto</h2>
+        <ul class="space-y-4">
+          
+          <li class="flex items-start space-x-3 text-slate-300">
+            <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 shrink-0 mt-0.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <div class="text-sm leading-relaxed">
+              <strong class="text-white">Ingeniería de Datos Espaciales:</strong> Modelado y normalización del sistema de coordenadas de cancha de 12,000 &times; 7,000 cm ($120 \times 70\text{ m}$), cálculo de distancias euclidianas exactas al arco (11.3 m en el gol de Müller) y generación de planos vectoriales SVG autónomos.
+            </div>
+          </li>
+
+          <li class="flex items-start space-x-3 text-slate-300">
+            <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 shrink-0 mt-0.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <div class="text-sm leading-relaxed">
+              <strong class="text-white">Curaduría de Fuentes Oficiales (FUENTES.md &amp; PROCEDENCIA.md):</strong> Conciliación de datos históricos entre FIFA, Opta, StatsBomb y FBref, resolviendo discrepancias en tiros a puerta (Alemania 1T/2T 7/3), tiros bloqueados/fuera (3/1) y posesión oficial.
+            </div>
+          </li>
+
+          <li class="flex items-start space-x-3 text-slate-300">
+            <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 shrink-0 mt-0.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <div class="text-sm leading-relaxed">
+              <strong class="text-white">Telemetría de 25 fps &amp; Ventanas Tácticas:</strong> Estructuración de la telemetría frame a frame para el primer gol y diseño del contrato temporal de 4 segundos que sincroniza el motor de métricas con la síntesis de voz auditiva.
+            </div>
+          </li>
+
+          <li class="flex items-start space-x-3 text-slate-300">
+            <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 shrink-0 mt-0.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <div class="text-sm leading-relaxed">
+              <strong class="text-white">Gobernanza Anti-Alucinación (IBM Granite 4):</strong> Diseño de las reglas deterministas de validación cruzada para auditar respuestas del LLM contra el registro verificador del partido en IBM Cloud watsonx (Monitor M3).
+            </div>
+          </li>
+
+        </ul>
+      </section>
+
+      <!-- Pila Tecnológica y Enlaces (1 columna) -->
+      <section class="glass-panel rounded-2xl p-6 md:p-8 space-y-6 flex flex-col justify-between">
+        <div class="space-y-4">
+          <h2 class="text-xl font-semibold text-white">Tecnologías Utilizadas</h2>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
+              IBM Granite 4
+            </span>
+            <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
+              watsonx.ai &amp; ADK
+            </span>
+            <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
+              Python / OpenCV
+            </span>
+            <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
+              YOLOv8x-pose
+            </span>
+            <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
+              ByteTrack
+            </span>
+            <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
+              Datos Espaciales SVG
+            </span>
+            <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
+              Savitzky-Golay
+            </span>
+          </div>
+        </div>
+
+        <div class="pt-6 border-t border-white/10 space-y-3">
+          <div class="space-y-1">
+            <div class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Dataset y Métricas (Fernando)</div>
+            <a href="https://github.com/FerTC8/omnimorph-brasil-alemania-2014" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-400 hover:underline break-all block font-mono">
+              https://github.com/FerTC8/omnimorph-brasil-alemania-2014
+            </a>
+          </div>
+          <div class="space-y-1">
+            <div class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Repositorio Principal (Equipo)</div>
+            <a href="https://github.com/Rogelio756/omnimorph-ibm-ai-lab" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-400 hover:underline break-all block font-mono">
+              https://github.com/Rogelio756/omnimorph-ibm-ai-lab
+            </a>
+          </div>
+          <div class="space-y-1">
+            <div class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Laboratorio</div>
+            <div class="text-xs font-mono text-slate-300 bg-black/40 px-3 py-2 rounded-lg border border-white/5 truncate">
+              IBM SkillsBuild AI Experiential Learning Lab 2026
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Bloque de Contacto -->
+    <section class="glass-panel rounded-2xl p-8 md:p-12 border border-blue-500/30 relative overflow-hidden bg-gradient-to-br from-blue-950/20 via-surface-card to-slate-900/40">
+      <div class="max-w-3xl space-y-4 relative z-10">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">¿Tienes un proyecto o desafío técnico similar?</h2>
+        <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+          Desarrollo de interfaces fluidas, ingeniería de datos espaciales y consultoría en adopción de IA y gobernanza de modelos para equipos y organizaciones.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a href="../index.html#contacto" class="apple-btn inline-flex items-center px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm shadow-lg shadow-blue-600/30">
+            Iniciar Conversación
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+          <a href="mailto:fertortc@gmail.com?subject=Consulta%20sobre%20OMNIMORPH" class="apple-btn inline-flex items-center px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-medium text-sm border border-white/10">
+            Escribir por Correo
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-white/10 py-8 px-6 text-center text-xs text-slate-500">
+    <p>Fernando Tort • Proyectos y Consultoría Técnica • Sistemas e Interfaces</p>
+  </footer>
+
+</body>
+</html>

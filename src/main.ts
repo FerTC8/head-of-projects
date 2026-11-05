@@ -43,7 +43,7 @@ interface Service {
   id: string;
   title: string;
   badge: string;
-  timeline: string;
+  timeline?: string;
   tagline: string;
   deliverables: string[];
   idealFor: string;
@@ -150,12 +150,9 @@ function renderServices() {
       (s) => `
       <div class="glass-panel card-hover rounded-2xl p-6 md:p-8 border border-white/10 flex flex-col justify-between space-y-6">
         <div class="space-y-4">
-          <div class="flex items-center justify-between">
+          <div>
             <span class="text-xs font-semibold uppercase tracking-wider text-blue-400 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
               ${s.badge}
-            </span>
-            <span class="text-xs font-medium text-slate-400 bg-white/5 px-2.5 py-1 rounded-lg border border-white/5">
-              ${s.timeline}
             </span>
           </div>
 
