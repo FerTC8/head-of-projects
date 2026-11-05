@@ -84,7 +84,7 @@ function renderProjects() {
           </div>
 
           <!-- Métricas clave -->
-          <div class="grid grid-cols-3 gap-2 py-3 border-y border-white/5">
+          <div class="grid ${(p.metrics || []).length > 3 ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-3'} gap-2 py-3 border-y border-white/5">
             ${p.metrics
               .map(
                 (m) => `

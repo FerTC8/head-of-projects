@@ -102,5 +102,34 @@
     ],
     "techStack": ["Looker Studio", "Modelado de Datos", "Comercio Internacional", "Series de Tiempo"],
     "diagram": "graph TD\n  Data[Datos de Comercio Global] --> |Normalización| Model[Modelo Cuantitativo]\n  Model --> |Evolución Temporal| Series[Series de Precios 2017-2023]\n  Model --> |Agregación Geográfica| Geo[Mapeo Geoespacial Global]\n  Series --> Dashboard[Dashboard en Looker Studio]\n  Geo --> Dashboard"
+  },
+  {
+    "id": "quick-note-macos",
+    "title": "Quick Note for macOS",
+    "category": "Productividad & Utilidades Nativas",
+    "tagline": "Bloc de notas flotante y ligero que permanece siempre visible sobre tus ventanas para trabajo enfocado, con temporizador integrado y privacidad 100% local.",
+    "liveUrl": "https://quick-note-landing.vercel.app",
+    "githubUrl": "https://github.com/rominirani/antigravity-skills/tree/main/FloatingNoteApp_v6",
+    "repoPath": "antigravity-skills/FloatingNoteApp_v6",
+    "featured": true,
+    "metrics": [
+      { "label": "Latencia", "value": "0ms" },
+      { "label": "Privacidad", "value": "100% Local" },
+      { "label": "Memoria", "value": "< 28 MB" },
+      { "label": "Ventana", "value": "Always-on-Top" }
+    ],
+    "highlights": [
+      "Permanece visible sobre todas las ventanas y escritorios virtuales (Spaces) sin robar el foco del teclado.",
+      "Temporizador de enfoque Pomodoro integrado con destello verde perimétrico silencioso.",
+      "Listas to-do interactivas y tablas auto-ajustables simples.",
+      "Almacenamiento atómico local en ~/.floating_note_v6.json sin cuentas, nube ni telemetría."
+    ],
+    "techStack": [
+      "Python 3",
+      "PyQt6",
+      "PyObjC / Cocoa",
+      "macOS Sequoia / Sonoma"
+    ],
+    "diagram": "graph TD\n  User[Usuario en macOS] --> |Atajo Global| Window[Ventana Flotante Always-on-Top]\n  Window --> |Temporizador| Pomodoro[Enfoque Silencioso]\n  Window --> |Persistencia Atómica| Storage[(~/.floating_note_v6.json)]\n  Window --> |Integración Cocoa| Spaces[Soporte Multi-Espacio macOS]"
   }
 ]

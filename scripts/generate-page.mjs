@@ -181,6 +181,7 @@ function generateProjectPage(project) {
     .replace(/\{\{TITLE\}\}/g, escapeHtml(project.title))
     .replace(/\{\{TAGLINE\}\}/g, escapeHtml(project.tagline))
     .replace(/\{\{CATEGORY\}\}/g, escapeHtml(project.category))
+    .replace(/\{\{METRICS_GRID_CLASS\}\}/g, (project.metrics || []).length > 3 ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-1 sm:grid-cols-3')
     .replace(/\{\{METRICS_HTML\}\}/g, metricsHtml)
     .replace(/\{\{DIAGRAM\}\}/g, project.diagram || 'graph TD; App-->Ready;')
     .replace(/\{\{HIGHLIGHTS_HTML\}\}/g, highlightsHtml)
