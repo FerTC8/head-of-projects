@@ -31,7 +31,7 @@ interface Project {
   liveUrl?: string;
   githubUrl?: string;
   repoPath: string;
-  status: string;
+  status?: string;
   featured: boolean;
   metrics: ProjectMetric[];
   highlights: string[];
@@ -72,13 +72,9 @@ function renderProjects() {
       (p) => `
       <div class="glass-panel card-hover rounded-2xl p-6 border border-white/10 flex flex-col justify-between space-y-6">
         <div class="space-y-4">
-          <div class="flex items-center justify-between">
+          <div>
             <span class="text-xs uppercase tracking-wider text-blue-400 font-semibold px-2.5 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20">
               ${p.category}
-            </span>
-            <span class="text-[11px] font-medium text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 flex items-center">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5"></span>
-              ${p.status}
             </span>
           </div>
 

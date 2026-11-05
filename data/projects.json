@@ -7,7 +7,6 @@
     "liveUrl": "https://invoice-generator-showcase.vercel.app/",
     "githubUrl": "https://github.com/FerTC8/invoice-generator-showcase",
     "repoPath": "invoice-generator-v4",
-    "status": "Producción en Vivo",
     "featured": true,
     "metrics": [
       { "label": "Interacción", "value": "60fps (resortes)" },
@@ -33,7 +32,6 @@
     "liveUrl": "https://ikea-wishlist-fertc8.vercel.app/",
     "githubUrl": "https://github.com/FerTC8/ikea-wishlist",
     "repoPath": "ikea-wishlist-site",
-    "status": "Producción en Vivo",
     "featured": true,
     "metrics": [
       { "label": "Peso de Carga", "value": "< 15 KB" },

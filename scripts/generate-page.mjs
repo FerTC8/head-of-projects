@@ -167,7 +167,6 @@ function generateProjectPage(project) {
     .replace(/\{\{TITLE\}\}/g, escapeHtml(project.title))
     .replace(/\{\{TAGLINE\}\}/g, escapeHtml(project.tagline))
     .replace(/\{\{CATEGORY\}\}/g, escapeHtml(project.category))
-    .replace(/\{\{STATUS\}\}/g, escapeHtml(project.status))
     .replace(/\{\{METRICS_HTML\}\}/g, metricsHtml)
     .replace(/\{\{DIAGRAM\}\}/g, project.diagram || 'graph TD; App-->Ready;')
     .replace(/\{\{HIGHLIGHTS_HTML\}\}/g, highlightsHtml)
@@ -197,13 +196,9 @@ function preRenderIndex() {
       (p) => `
       <div class="glass-panel card-hover rounded-2xl p-6 border border-white/10 flex flex-col justify-between space-y-6">
         <div class="space-y-4">
-          <div class="flex items-center justify-between">
+          <div>
             <span class="text-xs uppercase tracking-wider text-blue-400 font-semibold px-2.5 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20">
               ${escapeHtml(p.category)}
-            </span>
-            <span class="text-[11px] font-medium text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 flex items-center">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5"></span>
-              ${escapeHtml(p.status)}
             </span>
           </div>
 
@@ -323,13 +318,13 @@ function preRenderIndex() {
     .join('\n');
 
   indexHtml = indexHtml.replace(
-    /<div id="projects-grid"[^>]*>[\s\S]*?<\/div>/,
-    `<div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">\n${projectsGridHtml}\n    </div>`
+    /<!-- PROJECTS_GRID_START -->[\s\S]*?<!-- PROJECTS_GRID_END -->/,
+    `<!-- PROJECTS_GRID_START -->\n${projectsGridHtml}\n      <!-- PROJECTS_GRID_END -->`
   );
 
   indexHtml = indexHtml.replace(
-    /<div id="services-grid"[^>]*>[\s\S]*?<\/div>/,
-    `<div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">\n${servicesGridHtml}\n    </div>`
+    /<!-- SERVICES_GRID_START -->[\s\S]*?<!-- SERVICES_GRID_END -->/,
+    `<!-- SERVICES_GRID_START -->\n${servicesGridHtml}\n      <!-- SERVICES_GRID_END -->`
   );
 
   fs.writeFileSync(indexHtmlPath, indexHtml, 'utf8');
