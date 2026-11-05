@@ -7,7 +7,9 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
 const projectsDataPath = path.join(rootDir, 'data', 'projects.json');
+const servicesDataPath = path.join(rootDir, 'data', 'services.json');
 const templatePath = path.join(rootDir, 'templates', 'landing-page.html');
+const indexHtmlPath = path.join(rootDir, 'index.html');
 const rootPagesDir = path.join(rootDir, 'pages');
 const srcPagesDir = path.join(rootDir, 'src', 'pages');
 const distPagesDir = path.join(rootDir, 'dist', 'pages');
@@ -19,6 +21,7 @@ const distPagesDir = path.join(rootDir, 'dist', 'pages');
 });
 
 const projects = JSON.parse(fs.readFileSync(projectsDataPath, 'utf8'));
+const services = JSON.parse(fs.readFileSync(servicesDataPath, 'utf8'));
 const template = fs.readFileSync(templatePath, 'utf8');
 
 const targetArg = process.argv[2] || '--all';
@@ -104,12 +107,43 @@ function generateProjectPage(project) {
     `
     : '';
 
+  const livePreviewHtml = project.liveUrl
+    ? `
+      <!-- Vista Previa Interactiva en Vivo (Iframe) -->
+      <section class="glass-panel rounded-2xl border border-white/10 overflow-hidden space-y-0">
+        <div class="px-5 py-3.5 bg-black/40 border-b border-white/10 flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <span class="w-3 h-3 rounded-full bg-[#ff5f56]/80"></span>
+            <span class="w-3 h-3 rounded-full bg-[#ffbd2e]/80"></span>
+            <span class="w-3 h-3 rounded-full bg-[#27c93f]/80"></span>
+            <span class="ml-3 text-xs text-slate-400 font-mono hidden sm:inline-flex items-center">
+              <svg class="w-3 h-3 text-emerald-400 mr-1.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+              ${escapeHtml(project.liveUrl)}
+            </span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <span class="inline-flex items-center text-[11px] text-emerald-400 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
+              Showcase en Vivo
+            </span>
+            <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="apple-btn text-xs font-semibold px-3 py-1 rounded-lg bg-blue-600 hover:bg-blue-500 text-white shadow-sm flex items-center">
+              Abrir en ventana nueva ↗
+            </a>
+          </div>
+        </div>
+        <div class="relative w-full h-[700px] bg-[#0c0e14]">
+          <iframe src="${project.liveUrl}" class="w-full h-full border-0" loading="lazy" title="${escapeHtml(project.title)}"></iframe>
+        </div>
+      </section>
+    `
+    : '';
+
   const linksHtml = `
     ${project.liveUrl ? `
       <div class="space-y-1">
         <div class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Demo Público en Vivo</div>
         <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-400 hover:underline break-all block font-mono">
-          ${project.liveUrl}
+          ${escapeHtml(project.liveUrl)}
         </a>
       </div>
     ` : ''}
@@ -117,7 +151,7 @@ function generateProjectPage(project) {
       <div class="space-y-1">
         <div class="text-[11px] uppercase tracking-wider text-slate-400 font-medium">Código en GitHub</div>
         <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-400 hover:underline break-all block font-mono">
-          ${project.githubUrl}
+          ${escapeHtml(project.githubUrl)}
         </a>
       </div>
     ` : ''}
@@ -140,6 +174,7 @@ function generateProjectPage(project) {
     .replace(/\{\{TECH_STACK_HTML\}\}/g, techStackHtml)
     .replace(/\{\{HEADER_ACTIONS_HTML\}\}/g, headerActionsHtml)
     .replace(/\{\{HERO_ACTIONS_HTML\}\}/g, heroActionsHtml)
+    .replace(/\{\{LIVE_PREVIEW_HTML\}\}/g, livePreviewHtml)
     .replace(/\{\{LINKS_HTML\}\}/g, linksHtml);
 
   const rootOut = path.join(rootPagesDir, `${project.id}.html`);
@@ -152,8 +187,158 @@ function generateProjectPage(project) {
   console.log(`✓ Generated landing page: pages/${project.id}.html`);
 }
 
+function preRenderIndex() {
+  if (!fs.existsSync(indexHtmlPath)) return;
+  let indexHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+
+  // Pre-render projects grid
+  const projectsGridHtml = projects
+    .map(
+      (p) => `
+      <div class="glass-panel card-hover rounded-2xl p-6 border border-white/10 flex flex-col justify-between space-y-6">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs uppercase tracking-wider text-blue-400 font-semibold px-2.5 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20">
+              ${escapeHtml(p.category)}
+            </span>
+            <span class="text-[11px] font-medium text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 flex items-center">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5"></span>
+              ${escapeHtml(p.status)}
+            </span>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-white tracking-tight">${escapeHtml(p.title)}</h3>
+            <p class="text-xs text-slate-300 mt-1 leading-relaxed">${escapeHtml(p.tagline)}</p>
+          </div>
+
+          <!-- Métricas clave -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 py-2 border-y border-white/5">
+            ${p.metrics
+              .map(
+                (m) => `
+              <div class="text-center">
+                <div class="text-[10px] text-slate-400 uppercase font-medium">${escapeHtml(m.label)}</div>
+                <div class="text-xs font-bold text-white mt-0.5">${escapeHtml(m.value)}</div>
+              </div>
+            `
+              )
+              .join('')}
+          </div>
+
+          <!-- Etiquetas de tecnologías -->
+          <div class="flex flex-wrap gap-1.5">
+            ${p.techStack
+              .map(
+                (t) => `
+              <span class="px-2 py-0.5 text-[11px] font-medium text-slate-300 bg-white/5 rounded border border-white/5">
+                ${escapeHtml(t)}
+              </span>
+            `
+              )
+              .join('')}
+          </div>
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-1.5">
+            <button data-id="${p.id}" class="open-diagram-btn apple-btn text-xs font-semibold px-2.5 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/10 flex items-center">
+              <svg class="w-3.5 h-3.5 mr-1 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+              Arquitectura
+            </button>
+            <a href="./pages/${p.id}.html" class="apple-btn text-xs font-medium px-2.5 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 flex items-center">
+              Ficha
+            </a>
+            ${p.githubUrl ? `
+              <a href="${p.githubUrl}" target="_blank" rel="noopener noreferrer" class="apple-btn text-xs p-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white border border-white/10 flex items-center" title="Repositorio en GitHub">
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              </a>
+            ` : ''}
+          </div>
+
+          ${p.liveUrl ? `
+            <a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" class="apple-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white shadow-sm flex items-center shrink-0">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
+              Demo en Vivo
+              <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          ` : `
+            <a href="./pages/${p.id}.html" class="apple-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/15 text-white flex items-center shrink-0">
+              Ver Ficha →
+            </a>
+          `}
+        </div>
+      </div>
+    `
+    )
+    .join('\n');
+
+  // Pre-render services grid
+  const servicesGridHtml = services
+    .map(
+      (s) => `
+      <div class="glass-panel card-hover rounded-2xl p-6 md:p-8 border border-white/10 flex flex-col justify-between space-y-6">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold uppercase tracking-wider text-blue-400 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
+              ${escapeHtml(s.badge)}
+            </span>
+            <span class="text-xs font-medium text-slate-400 bg-white/5 px-2.5 py-1 rounded-lg border border-white/5">
+              ${escapeHtml(s.timeline)}
+            </span>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-white tracking-tight">${escapeHtml(s.title)}</h3>
+            <p class="text-xs text-slate-300 mt-1 leading-relaxed">${escapeHtml(s.tagline)}</p>
+          </div>
+
+          <div class="space-y-2 pt-2">
+            <div class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Alcance y entregables</div>
+            <ul class="space-y-2">
+              ${s.deliverables
+                .map(
+                  (d) => `
+                <li class="flex items-start text-xs text-slate-300 space-x-2">
+                  <span class="text-blue-400 font-bold shrink-0">✓</span>
+                  <span>${escapeHtml(d)}</span>
+                </li>
+              `
+                )
+                .join('')}
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+          <div class="text-xs text-slate-400 italic">${escapeHtml(s.idealFor)}</div>
+          <a href="#contacto" class="apple-btn text-xs font-semibold px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-white border border-white/10 shrink-0 ml-3">
+            Consultar
+          </a>
+        </div>
+      </div>
+    `
+    )
+    .join('\n');
+
+  indexHtml = indexHtml.replace(
+    /<div id="projects-grid"[^>]*>[\s\S]*?<\/div>/,
+    `<div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">\n${projectsGridHtml}\n    </div>`
+  );
+
+  indexHtml = indexHtml.replace(
+    /<div id="services-grid"[^>]*>[\s\S]*?<\/div>/,
+    `<div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">\n${servicesGridHtml}\n    </div>`
+  );
+
+  fs.writeFileSync(indexHtmlPath, indexHtml, 'utf8');
+  console.log(`✓ Pre-rendered projects and services into index.html`);
+}
+
 if (targetArg === '--all') {
   projects.forEach(generateProjectPage);
+  preRenderIndex();
   console.log(`✨ All ${projects.length} project landing pages synchronized.`);
 } else {
   const project = projects.find((p) => p.id === targetArg);
@@ -162,4 +347,5 @@ if (targetArg === '--all') {
     process.exit(1);
   }
   generateProjectPage(project);
+  preRenderIndex();
 }
