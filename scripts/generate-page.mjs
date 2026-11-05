@@ -107,7 +107,8 @@ function generateProjectPage(project) {
     `
     : '';
 
-  const livePreviewHtml = project.liveUrl
+  const iframeSrc = project.mirrorUrl || project.liveUrl;
+  const livePreviewHtml = (project.liveUrl || project.mirrorUrl)
     ? `
       <!-- Vista Previa Interactiva en Vivo (Iframe) -->
       <section class="glass-panel rounded-2xl border border-white/10 overflow-hidden space-y-0">
@@ -118,7 +119,7 @@ function generateProjectPage(project) {
             <span class="w-3 h-3 rounded-full bg-[#27c93f]/80"></span>
             <span class="ml-3 text-xs text-slate-400 font-mono hidden sm:inline-flex items-center">
               <svg class="w-3 h-3 text-emerald-400 mr-1.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
-              ${escapeHtml(project.liveUrl)}
+              ${escapeHtml(project.liveUrl || project.mirrorUrl)}
             </span>
           </div>
           <div class="flex items-center space-x-3">
@@ -126,13 +127,13 @@ function generateProjectPage(project) {
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
               Showcase en Vivo
             </span>
-            <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="apple-btn text-xs font-semibold px-3 py-1 rounded-lg bg-blue-600 hover:bg-blue-500 text-white shadow-sm flex items-center">
+            <a href="${project.liveUrl || project.mirrorUrl}" target="_blank" rel="noopener noreferrer" class="apple-btn text-xs font-semibold px-3 py-1 rounded-lg bg-blue-600 hover:bg-blue-500 text-white shadow-sm flex items-center">
               Abrir en ventana nueva ↗
             </a>
           </div>
         </div>
         <div class="relative w-full h-[700px] bg-[#0c0e14]">
-          <iframe src="${project.liveUrl}" class="w-full h-full border-0" loading="lazy" title="${escapeHtml(project.title)}"></iframe>
+          <iframe src="${iframeSrc}" class="w-full h-full border-0" loading="lazy" title="${escapeHtml(project.title)}"></iframe>
         </div>
       </section>
     `
