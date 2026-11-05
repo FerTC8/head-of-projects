@@ -197,8 +197,8 @@ function preRenderIndex() {
       (p) => `
       <div class="glass-panel card-hover rounded-2xl p-6 border border-white/10 flex flex-col justify-between space-y-6">
         <div class="space-y-4">
-          <div>
-            <span class="text-xs uppercase tracking-wider text-blue-400 font-semibold px-2.5 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] uppercase tracking-widest text-slate-400 font-medium">
               ${escapeHtml(p.category)}
             </span>
           </div>
@@ -209,13 +209,13 @@ function preRenderIndex() {
           </div>
 
           <!-- Métricas clave -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 py-2 border-y border-white/5">
+          <div class="grid grid-cols-3 gap-2 py-3 border-y border-white/5">
             ${p.metrics
               .map(
                 (m) => `
               <div class="text-center">
-                <div class="text-[10px] text-slate-400 uppercase font-medium">${escapeHtml(m.label)}</div>
-                <div class="text-xs font-bold text-white mt-0.5">${escapeHtml(m.value)}</div>
+                <div class="text-[10px] text-slate-400 uppercase tracking-wider font-medium">${escapeHtml(m.label)}</div>
+                <div class="text-xs font-semibold text-white mt-0.5">${escapeHtml(m.value)}</div>
               </div>
             `
               )

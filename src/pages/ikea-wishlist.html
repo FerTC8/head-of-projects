@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IKEA Wishlist &amp; In-Store Shopping Board — Arquitectura y Especificación Técnica</title>
+  <title>IKEA Wishlist Shopping Board — Arquitectura y Especificación Técnica</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
@@ -54,7 +54,7 @@
         </a>
         <span class="text-white/20">|</span>
         <span class="text-xs uppercase tracking-wider text-blue-400 font-semibold px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20">
-          Herramientas de Productividad &amp; Web Apps Móviles
+          Aplicación Web Móvil
         </span>
       </div>
       <div class="flex items-center space-x-3">
@@ -76,8 +76,8 @@
     <!-- Sección de Portada del Proyecto -->
     <section class="space-y-6">
       <div class="space-y-3">
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-white">IKEA Wishlist &amp; In-Store Shopping Board</h1>
-        <p class="text-xl text-slate-300 max-w-3xl leading-relaxed">Tablero visual interactivo de compras optimizado para piso de venta en tiendas físicas IKEA, con persistencia local en dispositivo, contador dinámico en vivo y assets autocontenidos sin hotlinks externos.</p>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-white">IKEA Wishlist Shopping Board</h1>
+        <p class="text-xl text-slate-300 max-w-3xl leading-relaxed">Tablero visual para piso de venta en tienda, con persistencia local y activos 100% autocontenidos.</p>
       </div>
 
       <!-- Botones de Acción (Demo en Vivo y GitHub) -->
@@ -100,29 +100,23 @@
     
 
       <!-- Métricas rápidas -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
         
         <div class="glass-panel rounded-xl p-4 border border-white/10 space-y-1">
-          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Peso de Carga</div>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Peso</div>
           <div class="text-2xl font-bold text-white tracking-tight">&lt; 15 KB</div>
         </div>
       
 
         <div class="glass-panel rounded-xl p-4 border border-white/10 space-y-1">
-          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Resiliencia</div>
-          <div class="text-2xl font-bold text-white tracking-tight">100% Autocontenido</div>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Activos</div>
+          <div class="text-2xl font-bold text-white tracking-tight">Autocontenidos</div>
         </div>
       
 
         <div class="glass-panel rounded-xl p-4 border border-white/10 space-y-1">
-          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Latencia UI</div>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Respuesta</div>
           <div class="text-2xl font-bold text-white tracking-tight">0ms local</div>
-        </div>
-      
-
-        <div class="glass-panel rounded-xl p-4 border border-white/10 space-y-1">
-          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Fluidez</div>
-          <div class="text-2xl font-bold text-white tracking-tight">60fps (CSS Grid)</div>
         </div>
       
       </div>
@@ -153,7 +147,7 @@
           </div>
         </div>
         <div class="relative w-full h-[700px] bg-[#0c0e14]">
-          <iframe src="https://fertc8.github.io/ikea-wishlist/" class="w-full h-full border-0" loading="lazy" title="IKEA Wishlist &amp; In-Store Shopping Board"></iframe>
+          <iframe src="https://fertc8.github.io/ikea-wishlist/" class="w-full h-full border-0" loading="lazy" title="IKEA Wishlist Shopping Board"></iframe>
         </div>
       </section>
     
@@ -171,12 +165,12 @@
       <div class="bg-[#0f1219] rounded-xl p-6 border border-white/5 overflow-x-auto">
         <pre class="mermaid text-center">
 graph TD
-  User[Usuario en Tienda (Móvil)] --> |Tap to Cart| Card[Tarjeta de Producto (data-id)]
+  User[Usuario en Tienda (Móvil)] --> |Tap to Cart| Card[Tarjeta de Producto]
   Card --> |Persistencia| Storage[(LocalStorage en Dispositivo)]
-  Card --> |Recomputación en Vivo| Counter[Contador Cabecera (X / Total)]
-  Assets[Assets Locales /images] --> |Sin Hotlinks| Card
-  GitHub[Repo FerTC8/ikea-wishlist] --> |CI/CD| Vercel[Vercel Edge CDN]
-  Vercel --> |Despliegue Inmediato| User
+  Card --> |Recomputación en Vivo| Counter[Contador en Cabecera]
+  Assets[Assets Locales /images] --> |Sin Dependencias Externas| Card
+  GitHub[Repositorio Git] --> |Despliegue| Vercel[Vercel Edge Network]
+  Vercel --> User
         </pre>
       </div>
     </section>
@@ -193,7 +187,7 @@ graph TD
           <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 shrink-0 mt-0.5">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           </span>
-          <span class="text-sm leading-relaxed">Arquitectura 100% autocontenida sin hotlinks externos: imágenes hero descargadas y alojadas localmente a 1400×1400px en /images/.</span>
+          <span class="text-sm leading-relaxed">Arquitectura autocontenida sin enlaces externos: imágenes en alta resolución alojadas localmente.</span>
         </li>
       
 
@@ -201,7 +195,7 @@ graph TD
           <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 shrink-0 mt-0.5">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           </span>
-          <span class="text-sm leading-relaxed">Persistencia de estado en dispositivo con LocalStorage API vinculado a data-id únicos por artículo para sobrevivir cierres de app en tienda.</span>
+          <span class="text-sm leading-relaxed">Persistencia local en dispositivo para mantener el avance de compra sin conexión.</span>
         </li>
       
 
@@ -209,7 +203,7 @@ graph TD
           <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 shrink-0 mt-0.5">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           </span>
-          <span class="text-sm leading-relaxed">Contador dinámico en cabecera con recálculo síncrono en vivo (X / Total In Cart).</span>
+          <span class="text-sm leading-relaxed">Contador reactivo en cabecera con balance inmediato de artículos seleccionados.</span>
         </li>
       
 
@@ -217,7 +211,7 @@ graph TD
           <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 shrink-0 mt-0.5">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           </span>
-          <span class="text-sm leading-relaxed">Diseño ergonómico touch-first en CSS Grid nativo (4 columnas en escritorio, 2 columnas en móvil) optimizado para una sola mano.</span>
+          <span class="text-sm leading-relaxed">Diseño adaptativo en CSS Grid pensado para uso cómodo con una sola mano.</span>
         </li>
       
 
@@ -225,7 +219,7 @@ graph TD
           <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 shrink-0 mt-0.5">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           </span>
-          <span class="text-sm leading-relaxed">Despliegue multi-canal en Vercel Edge Network y GitHub Pages con sincronización continua vía Git.</span>
+          <span class="text-sm leading-relaxed">Despliegue multi-canal en Vercel Edge Network y GitHub Pages.</span>
         </li>
       
         </ul>
@@ -243,27 +237,17 @@ graph TD
       
 
         <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
-          CSS Grid &amp; Flexbox Nativo
+          CSS Grid Nativo
         </span>
       
 
         <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
-          JavaScript Vanilla (ES6+)
+          JavaScript Vanilla
         </span>
       
 
         <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
-          LocalStorage API
-        </span>
-      
-
-        <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
-          Vercel Edge Network
-        </span>
-      
-
-        <span class="px-3 py-1 text-xs font-medium text-slate-200 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
-          GitHub Pages
+          LocalStorage
         </span>
       
           </div>
@@ -310,7 +294,7 @@ graph TD
             Iniciar Conversación
             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </a>
-          <a href="mailto:fertortc@gmail.com?subject=Consulta%20sobre%20IKEA Wishlist &amp; In-Store Shopping Board" class="apple-btn inline-flex items-center px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-medium text-sm border border-white/10">
+          <a href="mailto:fertortc@gmail.com?subject=Consulta%20sobre%20IKEA Wishlist Shopping Board" class="apple-btn inline-flex items-center px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-medium text-sm border border-white/10">
             Escribir por Correo
           </a>
         </div>

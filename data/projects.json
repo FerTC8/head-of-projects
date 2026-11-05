@@ -2,52 +2,50 @@
   {
     "id": "3decibels-studio",
     "title": "3Decibels Quote & Invoice Studio",
-    "category": "Herramientas de Productividad & UI de Alta Fidelidad",
-    "tagline": "Suite de cotización y facturación diseñada bajo principios Apple Fluid Interface, exportación vectorial estricta a 1 página y arquitectura reactiva sin dependencias.",
+    "category": "Productividad & Interfaz",
+    "tagline": "Herramienta de cotización y facturación con interfaz táctil y exportación vectorial en página única.",
     "liveUrl": "https://invoice-generator-showcase.vercel.app/",
     "githubUrl": "https://github.com/FerTC8/invoice-generator-showcase",
     "repoPath": "invoice-generator-v4",
     "featured": true,
     "metrics": [
-      { "label": "Interacción", "value": "60fps (resortes)" },
-      { "label": "Modo Offline", "value": "100% aislado" },
-      { "label": "Impresión PDF", "value": "100% US Letter" },
-      { "label": "Dependencias", "value": "Zero runtime" }
+      { "label": "Interacción", "value": "60fps" },
+      { "label": "Impresión", "value": "1 Página PDF" },
+      { "label": "Persistencia", "value": "Local y Aislada" }
     ],
     "highlights": [
-      "Barra superior y panel lateral con vidrio esmerilado translúcido (backdrop-filter: blur(28px)) y retroalimentación táctil elástica (active:scale-[0.97]).",
-      "Lienzo adaptativo con auto-escalado proporcional (autoFitCanvas) ajustado al ancho del viewport en iPhone, iPad y pantallas Retina.",
-      "Exportación vectorial estricta a 1 página (@media print) protegida contra saltos accidentales de página.",
-      "Cálculo dinámico de divisas, impuestos, kilometraje/viáticos y bloque multimodal de pago (Zelle, Venmo, Square, Bank/ACH, PayPal).",
-      "Persistencia híbrida inteligente: almacenamiento local instantáneo en sandbox aislado y sincronización en nube vía Upstash Redis / Vercel KV."
+      "Materiales translúcidos con desenfoque de 28px y respuesta elástica táctil.",
+      "Lienzo adaptativo con escalado proporcional para pantallas Retina y móviles.",
+      "Exportación vectorial estricta a una sola página para impresión y PDF.",
+      "Cálculo de partidas, kilometraje, divisas y pasarelas de pago múltiples.",
+      "Persistencia dual en almacenamiento local y sincronización ligera en nube."
     ],
-    "techStack": ["HTML5 Nativo", "CSS Translúcido (blur 28px)", "TypeScript", "Vercel Serverless", "Upstash Redis", "LocalStorage"],
-    "diagram": "graph TD\n  Client[Cliente Apple Fluid Interface] --> |Auto-escalado| Canvas[Lienzo Vectorial autoFitCanvas]\n  Client --> |Sandbox Aislado| LocalStorage[(LocalStorage 100% Offline)]\n  Client --> |Persistencia Híbrida| KV[API Serverless Vercel / Upstash Redis]\n  Canvas --> |Exportación Estricta 1 Página| Print[Motor de Impresión PDF / AirPrint]"
+    "techStack": ["TypeScript", "CSS Translúcido", "Vercel Serverless", "LocalStorage"],
+    "diagram": "graph TD\n  Client[Cliente con Interfaz Táctil] --> |Auto-escalado| Canvas[Lienzo Vectorial Proporcional]\n  Client --> |Sandbox Aislado| LocalStorage[(LocalStorage 100% Offline)]\n  Client --> |Persistencia Híbrida| KV[API Serverless Vercel / KV]\n  Canvas --> |Exportación Estricta| Print[Motor de Impresión PDF / AirPrint]"
   },
   {
     "id": "ikea-wishlist",
-    "title": "IKEA Wishlist & In-Store Shopping Board",
-    "category": "Herramientas de Productividad & Web Apps Móviles",
-    "tagline": "Tablero visual interactivo de compras optimizado para piso de venta en tiendas físicas IKEA, con persistencia local en dispositivo, contador dinámico en vivo y assets autocontenidos sin hotlinks externos.",
+    "title": "IKEA Wishlist Shopping Board",
+    "category": "Aplicación Web Móvil",
+    "tagline": "Tablero visual para piso de venta en tienda, con persistencia local y activos 100% autocontenidos.",
     "liveUrl": "https://ikea-wishlist-ank0kxjqc-fer-tc-8.vercel.app/",
     "mirrorUrl": "https://fertc8.github.io/ikea-wishlist/",
     "githubUrl": "https://github.com/FerTC8/ikea-wishlist",
     "repoPath": "ikea-wishlist-site",
     "featured": true,
     "metrics": [
-      { "label": "Peso de Carga", "value": "< 15 KB" },
-      { "label": "Resiliencia", "value": "100% Autocontenido" },
-      { "label": "Latencia UI", "value": "0ms local" },
-      { "label": "Fluidez", "value": "60fps (CSS Grid)" }
+      { "label": "Peso", "value": "< 15 KB" },
+      { "label": "Activos", "value": "Autocontenidos" },
+      { "label": "Respuesta", "value": "0ms local" }
     ],
     "highlights": [
-      "Arquitectura 100% autocontenida sin hotlinks externos: imágenes hero descargadas y alojadas localmente a 1400×1400px en /images/.",
-      "Persistencia de estado en dispositivo con LocalStorage API vinculado a data-id únicos por artículo para sobrevivir cierres de app en tienda.",
-      "Contador dinámico en cabecera con recálculo síncrono en vivo (X / Total In Cart).",
-      "Diseño ergonómico touch-first en CSS Grid nativo (4 columnas en escritorio, 2 columnas en móvil) optimizado para una sola mano.",
-      "Despliegue multi-canal en Vercel Edge Network y GitHub Pages con sincronización continua vía Git."
+      "Arquitectura autocontenida sin enlaces externos: imágenes en alta resolución alojadas localmente.",
+      "Persistencia local en dispositivo para mantener el avance de compra sin conexión.",
+      "Contador reactivo en cabecera con balance inmediato de artículos seleccionados.",
+      "Diseño adaptativo en CSS Grid pensado para uso cómodo con una sola mano.",
+      "Despliegue multi-canal en Vercel Edge Network y GitHub Pages."
     ],
-    "techStack": ["HTML5 Semántico", "CSS Grid & Flexbox Nativo", "JavaScript Vanilla (ES6+)", "LocalStorage API", "Vercel Edge Network", "GitHub Pages"],
-    "diagram": "graph TD\n  User[Usuario en Tienda (Móvil)] --> |Tap to Cart| Card[Tarjeta de Producto (data-id)]\n  Card --> |Persistencia| Storage[(LocalStorage en Dispositivo)]\n  Card --> |Recomputación en Vivo| Counter[Contador Cabecera (X / Total)]\n  Assets[Assets Locales /images] --> |Sin Hotlinks| Card\n  GitHub[Repo FerTC8/ikea-wishlist] --> |CI/CD| Vercel[Vercel Edge CDN]\n  Vercel --> |Despliegue Inmediato| User"
+    "techStack": ["HTML5 Semántico", "CSS Grid Nativo", "JavaScript Vanilla", "LocalStorage"],
+    "diagram": "graph TD\n  User[Usuario en Tienda (Móvil)] --> |Tap to Cart| Card[Tarjeta de Producto]\n  Card --> |Persistencia| Storage[(LocalStorage en Dispositivo)]\n  Card --> |Recomputación en Vivo| Counter[Contador en Cabecera]\n  Assets[Assets Locales /images] --> |Sin Dependencias Externas| Card\n  GitHub[Repositorio Git] --> |Despliegue| Vercel[Vercel Edge Network]\n  Vercel --> User"
   }
 ]
