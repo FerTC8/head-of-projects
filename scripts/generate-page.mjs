@@ -239,11 +239,7 @@ function preRenderIndex() {
         <!-- Botones de acción -->
         <div class="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
           <div class="flex items-center gap-1.5">
-            <button data-id="${p.id}" class="open-diagram-btn apple-btn text-xs font-semibold px-2.5 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/10 flex items-center">
-              <svg class="w-3.5 h-3.5 mr-1 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
-              Arquitectura
-            </button>
-            <a href="./pages/${p.id}.html" class="apple-btn text-xs font-medium px-2.5 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 flex items-center">
+            <a href="./pages/${p.id}.html" class="apple-btn text-xs font-medium px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 flex items-center">
               Ficha
             </a>
             ${p.githubUrl ? `
