@@ -1,5 +1,120 @@
 [
   {
+    "id": "3decibels-studio",
+    "title": "3Decibels Quote & Invoice Studio",
+    "category": "Productividad & Interfaz",
+    "tagline": "Herramienta de cotización y facturación con interfaz táctil y exportación vectorial en página única.",
+    "liveUrl": "https://invoice-generator-showcase.vercel.app/",
+    "githubUrl": "https://github.com/FerTC8/invoice-generator-showcase",
+    "repoPath": "invoice-generator-v4",
+    "featured": true,
+    "metrics": [
+      {
+        "label": "Interacción",
+        "value": "60fps"
+      },
+      {
+        "label": "Impresión",
+        "value": "1 Página PDF"
+      },
+      {
+        "label": "Persistencia",
+        "value": "Local y Aislada"
+      }
+    ],
+    "highlights": [
+      "Materiales translúcidos con desenfoque de 28px y respuesta elástica táctil.",
+      "Lienzo adaptativo con escalado proporcional para pantallas Retina y móviles.",
+      "Exportación vectorial estricta a una sola página para impresión y PDF.",
+      "Cálculo de partidas, kilometraje, divisas y pasarelas de pago múltiples.",
+      "Persistencia dual en almacenamiento local y sincronización ligera en nube."
+    ],
+    "techStack": [
+      "TypeScript",
+      "CSS Translúcido",
+      "Vercel Serverless",
+      "LocalStorage"
+    ],
+    "diagram": "graph TD\n  Client[Cliente con Interfaz Táctil] --> |Auto-escalado| Canvas[Lienzo Vectorial Proporcional]\n  Client --> |Sandbox Aislado| LocalStorage[(LocalStorage 100% Offline)]\n  Client --> |Persistencia Híbrida| KV[API Serverless Vercel / KV]\n  Canvas --> |Exportación Estricta| Print[Motor de Impresión PDF / AirPrint]"
+  },
+  {
+    "id": "quick-note-macos",
+    "title": "Quick Note for macOS",
+    "category": "Productividad & Utilidades Nativas",
+    "tagline": "Bloc de notas flotante y ligero que permanece siempre visible sobre tus ventanas para trabajo enfocado, con temporizador integrado y privacidad 100% local.",
+    "liveUrl": "https://quick-note-landing.vercel.app",
+    "githubUrl": "https://github.com/rominirani/antigravity-skills/tree/main/FloatingNoteApp_v6",
+    "repoPath": "antigravity-skills/FloatingNoteApp_v6",
+    "featured": true,
+    "metrics": [
+      {
+        "label": "Latencia",
+        "value": "0ms"
+      },
+      {
+        "label": "Privacidad",
+        "value": "100% Local"
+      },
+      {
+        "label": "Memoria",
+        "value": "< 28 MB"
+      },
+      {
+        "label": "Ventana",
+        "value": "Always-on-Top"
+      }
+    ],
+    "highlights": [
+      "Permanece visible sobre todas las ventanas y escritorios virtuales (Spaces) sin robar el foco del teclado.",
+      "Temporizador de enfoque Pomodoro integrado con destello verde perimétrico silencioso.",
+      "Listas to-do interactivas y tablas auto-ajustables simples.",
+      "Almacenamiento atómico local en ~/.floating_note_v6.json sin cuentas, nube ni telemetría."
+    ],
+    "techStack": [
+      "Python 3",
+      "PyQt6",
+      "PyObjC / Cocoa",
+      "macOS Sequoia / Sonoma"
+    ],
+    "diagram": "graph TD\n  User[Usuario en macOS] --> |Atajo Global| Window[Ventana Flotante Always-on-Top]\n  Window --> |Temporizador| Pomodoro[Enfoque Silencioso]\n  Window --> |Persistencia Atómica| Storage[(~/.floating_note_v6.json)]\n  Window --> |Integración Cocoa| Spaces[Soporte Multi-Espacio macOS]"
+  },
+  {
+    "id": "export-analysis-dashboard",
+    "title": "Export Market Analysis Dashboard",
+    "category": "Inteligencia de Datos & BI",
+    "tagline": "Tablero analítico de comercio internacional y tendencias de precios para productos madereros.",
+    "liveUrl": "https://datastudio.google.com/reporting/e3b8696a-7b48-48fc-bbd0-f136cf7ff970",
+    "mirrorUrl": "https://lookerstudio.google.com/embed/reporting/e3b8696a-7b48-48fc-bbd0-f136cf7ff970",
+    "repoPath": "looker-studio-export-analysis",
+    "featured": true,
+    "metrics": [
+      {
+        "label": "Período",
+        "value": "2017–2023"
+      },
+      {
+        "label": "Cobertura",
+        "value": "Multipaís"
+      },
+      {
+        "label": "Motor",
+        "value": "Looker Studio"
+      }
+    ],
+    "highlights": [
+      "Visualización geoespacial de flujos de exportación e importación con burbujas ponderadas por valor comercial.",
+      "Análisis comparativo de precios promedio por país y desglose histórico de tendencias temporales.",
+      "Segmentación interactiva con filtros combinados por código arancelario, país informante y socio comercial."
+    ],
+    "techStack": [
+      "Looker Studio",
+      "Modelado de Datos",
+      "Comercio Internacional",
+      "Series de Tiempo"
+    ],
+    "diagram": "graph TD\n  Data[Datos de Comercio Global] --> |Normalización| Model[Modelo Cuantitativo]\n  Model --> |Evolución Temporal| Series[Series de Precios 2017-2023]\n  Model --> |Agregación Geográfica| Geo[Mapeo Geoespacial Global]\n  Series --> Dashboard[Dashboard en Looker Studio]\n  Geo --> Dashboard"
+  },
+  {
     "id": "omnimorph",
     "title": "OMNIMORPH — AI Sports Analytics",
     "category": "Telemetría, Datos Espaciales & IA Gobernada",
@@ -10,10 +125,22 @@
     "featured": true,
     "customPage": true,
     "metrics": [
-      { "label": "Gol Müller (11')", "value": "11.3 m" },
-      { "label": "Cancha 2D", "value": "120m × 70m" },
-      { "label": "Tracking 25fps", "value": "22 + Balón" },
-      { "label": "IA Gobernada", "value": "Granite 4" }
+      {
+        "label": "Gol Müller (11')",
+        "value": "11.3 m"
+      },
+      {
+        "label": "Cancha 2D",
+        "value": "120m × 70m"
+      },
+      {
+        "label": "Tracking 25fps",
+        "value": "22 + Balón"
+      },
+      {
+        "label": "IA Gobernada",
+        "value": "Granite 4"
+      }
     ],
     "highlights": [
       "Reconstrucción matemática y espacial del histórico Brasil 1–7 Alemania 2014.",
@@ -33,30 +160,6 @@
     "diagram": "graph TD\n  Local[1. Percepción GPU Local: YOLOv8x + ByteTrack + Homografía Ht] --> |Ventanas 4s / Telemetría| Engine[Motor Cinemático: Savitzky-Golay]\n  Engine --> |Telemetría Sincronizada| IBM[2. IBM Cloud watsonx: Granite 4 + ADK]\n  IBM --> |Auditoría M3 Anti-alucinación| Gov[watsonx.governance: chat_audit.jsonl]\n  Gov --> |Crónica y Hechos Deportivos| Dashboard[3. Dashboard MATEO: 4 Paneles + Audio TTS]"
   },
   {
-    "id": "3decibels-studio",
-    "title": "3Decibels Quote & Invoice Studio",
-    "category": "Productividad & Interfaz",
-    "tagline": "Herramienta de cotización y facturación con interfaz táctil y exportación vectorial en página única.",
-    "liveUrl": "https://invoice-generator-showcase.vercel.app/",
-    "githubUrl": "https://github.com/FerTC8/invoice-generator-showcase",
-    "repoPath": "invoice-generator-v4",
-    "featured": true,
-    "metrics": [
-      { "label": "Interacción", "value": "60fps" },
-      { "label": "Impresión", "value": "1 Página PDF" },
-      { "label": "Persistencia", "value": "Local y Aislada" }
-    ],
-    "highlights": [
-      "Materiales translúcidos con desenfoque de 28px y respuesta elástica táctil.",
-      "Lienzo adaptativo con escalado proporcional para pantallas Retina y móviles.",
-      "Exportación vectorial estricta a una sola página para impresión y PDF.",
-      "Cálculo de partidas, kilometraje, divisas y pasarelas de pago múltiples.",
-      "Persistencia dual en almacenamiento local y sincronización ligera en nube."
-    ],
-    "techStack": ["TypeScript", "CSS Translúcido", "Vercel Serverless", "LocalStorage"],
-    "diagram": "graph TD\n  Client[Cliente con Interfaz Táctil] --> |Auto-escalado| Canvas[Lienzo Vectorial Proporcional]\n  Client --> |Sandbox Aislado| LocalStorage[(LocalStorage 100% Offline)]\n  Client --> |Persistencia Híbrida| KV[API Serverless Vercel / KV]\n  Canvas --> |Exportación Estricta| Print[Motor de Impresión PDF / AirPrint]"
-  },
-  {
     "id": "ikea-wishlist",
     "title": "IKEA Wishlist Shopping Board",
     "category": "Aplicación Web Móvil",
@@ -67,9 +170,18 @@
     "repoPath": "ikea-wishlist-site",
     "featured": true,
     "metrics": [
-      { "label": "Peso", "value": "< 15 KB" },
-      { "label": "Activos", "value": "Autocontenidos" },
-      { "label": "Respuesta", "value": "0ms local" }
+      {
+        "label": "Peso",
+        "value": "< 15 KB"
+      },
+      {
+        "label": "Activos",
+        "value": "Autocontenidos"
+      },
+      {
+        "label": "Respuesta",
+        "value": "0ms local"
+      }
     ],
     "highlights": [
       "Arquitectura autocontenida sin enlaces externos: imágenes en alta resolución alojadas localmente.",
@@ -78,58 +190,12 @@
       "Diseño adaptativo en CSS Grid pensado para uso cómodo con una sola mano.",
       "Despliegue multi-canal en Vercel Edge Network y GitHub Pages."
     ],
-    "techStack": ["HTML5 Semántico", "CSS Grid Nativo", "JavaScript Vanilla", "LocalStorage"],
-    "diagram": "graph TD\n  User[Usuario en Tienda (Móvil)] --> |Tap to Cart| Card[Tarjeta de Producto]\n  Card --> |Persistencia| Storage[(LocalStorage en Dispositivo)]\n  Card --> |Recomputación en Vivo| Counter[Contador en Cabecera]\n  Assets[Assets Locales /images] --> |Sin Dependencias Externas| Card\n  GitHub[Repositorio Git] --> |Despliegue| Vercel[Vercel Edge Network]\n  Vercel --> User"
-  },
-  {
-    "id": "export-analysis-dashboard",
-    "title": "Export Market Analysis Dashboard",
-    "category": "Inteligencia de Datos & BI",
-    "tagline": "Tablero analítico de comercio internacional y tendencias de precios para productos madereros.",
-    "liveUrl": "https://datastudio.google.com/reporting/e3b8696a-7b48-48fc-bbd0-f136cf7ff970",
-    "mirrorUrl": "https://lookerstudio.google.com/embed/reporting/e3b8696a-7b48-48fc-bbd0-f136cf7ff970",
-    "repoPath": "looker-studio-export-analysis",
-    "featured": true,
-    "metrics": [
-      { "label": "Período", "value": "2017–2023" },
-      { "label": "Cobertura", "value": "Multipaís" },
-      { "label": "Motor", "value": "Looker Studio" }
-    ],
-    "highlights": [
-      "Visualización geoespacial de flujos de exportación e importación con burbujas ponderadas por valor comercial.",
-      "Análisis comparativo de precios promedio por país y desglose histórico de tendencias temporales.",
-      "Segmentación interactiva con filtros combinados por código arancelario, país informante y socio comercial."
-    ],
-    "techStack": ["Looker Studio", "Modelado de Datos", "Comercio Internacional", "Series de Tiempo"],
-    "diagram": "graph TD\n  Data[Datos de Comercio Global] --> |Normalización| Model[Modelo Cuantitativo]\n  Model --> |Evolución Temporal| Series[Series de Precios 2017-2023]\n  Model --> |Agregación Geográfica| Geo[Mapeo Geoespacial Global]\n  Series --> Dashboard[Dashboard en Looker Studio]\n  Geo --> Dashboard"
-  },
-  {
-    "id": "quick-note-macos",
-    "title": "Quick Note for macOS",
-    "category": "Productividad & Utilidades Nativas",
-    "tagline": "Bloc de notas flotante y ligero que permanece siempre visible sobre tus ventanas para trabajo enfocado, con temporizador integrado y privacidad 100% local.",
-    "liveUrl": "https://quick-note-landing.vercel.app",
-    "githubUrl": "https://github.com/rominirani/antigravity-skills/tree/main/FloatingNoteApp_v6",
-    "repoPath": "antigravity-skills/FloatingNoteApp_v6",
-    "featured": true,
-    "metrics": [
-      { "label": "Latencia", "value": "0ms" },
-      { "label": "Privacidad", "value": "100% Local" },
-      { "label": "Memoria", "value": "< 28 MB" },
-      { "label": "Ventana", "value": "Always-on-Top" }
-    ],
-    "highlights": [
-      "Permanece visible sobre todas las ventanas y escritorios virtuales (Spaces) sin robar el foco del teclado.",
-      "Temporizador de enfoque Pomodoro integrado con destello verde perimétrico silencioso.",
-      "Listas to-do interactivas y tablas auto-ajustables simples.",
-      "Almacenamiento atómico local en ~/.floating_note_v6.json sin cuentas, nube ni telemetría."
-    ],
     "techStack": [
-      "Python 3",
-      "PyQt6",
-      "PyObjC / Cocoa",
-      "macOS Sequoia / Sonoma"
+      "HTML5 Semántico",
+      "CSS Grid Nativo",
+      "JavaScript Vanilla",
+      "LocalStorage"
     ],
-    "diagram": "graph TD\n  User[Usuario en macOS] --> |Atajo Global| Window[Ventana Flotante Always-on-Top]\n  Window --> |Temporizador| Pomodoro[Enfoque Silencioso]\n  Window --> |Persistencia Atómica| Storage[(~/.floating_note_v6.json)]\n  Window --> |Integración Cocoa| Spaces[Soporte Multi-Espacio macOS]"
+    "diagram": "graph TD\n  User[Usuario en Tienda (Móvil)] --> |Tap to Cart| Card[Tarjeta de Producto]\n  Card --> |Persistencia| Storage[(LocalStorage en Dispositivo)]\n  Card --> |Recomputación en Vivo| Counter[Contador en Cabecera]\n  Assets[Assets Locales /images] --> |Sin Dependencias Externas| Card\n  GitHub[Repositorio Git] --> |Despliegue| Vercel[Vercel Edge Network]\n  Vercel --> User"
   }
 ]

@@ -208,8 +208,17 @@ function preRenderIndex() {
   // Pre-render projects grid
   const projectsGridHtml = projects
     .map(
-      (p) => `
-      <div class="glass-panel card-hover rounded-2xl p-6 border border-white/10 flex flex-col justify-between space-y-6">
+      (p, index) => {
+        let colClasses = 'col-span-1 md:col-span-1 lg:col-span-2';
+        if (projects.length === 5) {
+          if (index === 3) {
+            colClasses = 'col-span-1 md:col-span-1 lg:col-span-2 lg:col-start-2';
+          } else if (index === 4) {
+            colClasses = 'col-span-1 md:col-span-2 md:max-w-md md:mx-auto md:w-full lg:col-start-4 lg:col-span-2 lg:max-w-none lg:mx-0';
+          }
+        }
+        return `
+      <div class="glass-panel card-hover rounded-2xl p-6 border border-white/10 flex flex-col justify-between space-y-6 ${colClasses}">
         <div class="space-y-4">
           <div class="flex items-center justify-between">
             <span class="text-[11px] uppercase tracking-widest text-slate-400 font-medium">
@@ -276,7 +285,8 @@ function preRenderIndex() {
           `}
         </div>
       </div>
-    `
+    `;
+      }
     )
     .join('\n');
 
