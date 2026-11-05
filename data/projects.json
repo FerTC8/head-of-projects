@@ -47,5 +47,27 @@
     ],
     "techStack": ["HTML5 Semántico", "CSS Grid Nativo", "JavaScript Vanilla", "LocalStorage"],
     "diagram": "graph TD\n  User[Usuario en Tienda (Móvil)] --> |Tap to Cart| Card[Tarjeta de Producto]\n  Card --> |Persistencia| Storage[(LocalStorage en Dispositivo)]\n  Card --> |Recomputación en Vivo| Counter[Contador en Cabecera]\n  Assets[Assets Locales /images] --> |Sin Dependencias Externas| Card\n  GitHub[Repositorio Git] --> |Despliegue| Vercel[Vercel Edge Network]\n  Vercel --> User"
+  },
+  {
+    "id": "export-analysis-dashboard",
+    "title": "Export Market Analysis Dashboard",
+    "category": "Inteligencia de Datos & BI",
+    "tagline": "Tablero analítico de comercio internacional y tendencias de precios para productos madereros.",
+    "liveUrl": "https://datastudio.google.com/reporting/e3b8696a-7b48-48fc-bbd0-f136cf7ff970",
+    "mirrorUrl": "https://lookerstudio.google.com/embed/reporting/e3b8696a-7b48-48fc-bbd0-f136cf7ff970",
+    "repoPath": "looker-studio-export-analysis",
+    "featured": true,
+    "metrics": [
+      { "label": "Período", "value": "2017–2023" },
+      { "label": "Cobertura", "value": "Multipaís" },
+      { "label": "Motor", "value": "Looker Studio" }
+    ],
+    "highlights": [
+      "Visualización geoespacial de flujos de exportación e importación con burbujas ponderadas por valor comercial.",
+      "Análisis comparativo de precios promedio por país y desglose histórico de tendencias temporales.",
+      "Segmentación interactiva con filtros combinados por código arancelario, país informante y socio comercial."
+    ],
+    "techStack": ["Looker Studio", "Modelado de Datos", "Comercio Internacional", "Series de Tiempo"],
+    "diagram": "graph TD\n  Data[Datos de Comercio Global] --> |Normalización| Model[Modelo Cuantitativo]\n  Model --> |Evolución Temporal| Series[Series de Precios 2017-2023]\n  Model --> |Agregación Geográfica| Geo[Mapeo Geoespacial Global]\n  Series --> Dashboard[Dashboard en Looker Studio]\n  Geo --> Dashboard"
   }
 ]
