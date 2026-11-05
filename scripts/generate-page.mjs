@@ -13,12 +13,32 @@ const indexHtmlPath = path.join(rootDir, 'index.html');
 const rootPagesDir = path.join(rootDir, 'pages');
 const srcPagesDir = path.join(rootDir, 'src', 'pages');
 const distPagesDir = path.join(rootDir, 'dist', 'pages');
+const rootImagesDir = path.join(rootDir, 'images');
+const srcImagesDir = path.join(rootDir, 'src', 'images');
+const publicImagesDir = path.join(rootDir, 'public', 'images');
 
 [rootPagesDir, srcPagesDir, distPagesDir].forEach((dir) => {
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
   }
 });
+
+// Ensure images directories exist for local file:// previews
+if (!fs.existsSync(rootImagesDir)) {
+  try {
+    fs.symlinkSync('public/images', rootImagesDir, 'dir');
+  } catch {
+    fs.cpSync(publicImagesDir, rootImagesDir, { recursive: true });
+  }
+}
+
+if (!fs.existsSync(srcImagesDir)) {
+  try {
+    fs.symlinkSync('../public/images', srcImagesDir, 'dir');
+  } catch {
+    fs.cpSync(publicImagesDir, srcImagesDir, { recursive: true });
+  }
+}
 
 const projects = JSON.parse(fs.readFileSync(projectsDataPath, 'utf8'));
 const services = JSON.parse(fs.readFileSync(servicesDataPath, 'utf8'));
@@ -154,7 +174,7 @@ function generateProjectPage(project) {
           <div class="absolute inset-0 bg-gradient-to-b from-blue-600/10 via-transparent to-transparent pointer-events-none"></div>
           <div class="relative max-w-5xl w-full rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 ring-1 ring-white/5">
             <a href="${escapeHtml(pageImg)}" target="_blank" rel="noopener noreferrer" class="block group cursor-zoom-in" title="Clic para ampliar en alta resolución">
-              <img src="${escapeHtml(pageImg)}" alt="${escapeHtml(project.title)}" class="w-full h-auto block select-none group-hover:scale-[1.008] transition-transform duration-300" loading="eager">
+              <img src="${escapeHtml(pageImg)}" onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='../public/images/${path.basename(pageImg)}';}else if(this.dataset.retry==='1'){this.dataset.retry='2';this.src='/images/${path.basename(pageImg)}';}" alt="${escapeHtml(project.title)}" class="w-full h-auto block select-none group-hover:scale-[1.008] transition-transform duration-300" loading="eager">
             </a>
           </div>
         </div>
